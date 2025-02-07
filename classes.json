@@ -1,0 +1,1787 @@
+{
+    "ShipHistoryStats": {
+        "implements": [],
+        "associations": [
+            "Type",
+            "Direction"
+        ],
+        "variables": [
+            {
+                "name": "shipId",
+                "type": "int"
+            },
+            {
+                "name": "shipTypeId",
+                "type": "int"
+            },
+            {
+                "name": "chkPointType",
+                "type": "Type"
+            },
+            {
+                "name": "chkPointId",
+                "type": "int"
+            },
+            {
+                "name": "shipDirection",
+                "type": "Direction"
+            },
+            {
+                "name": "arrivalTime",
+                "type": "double"
+            },
+            {
+                "name": "departTime",
+                "type": "double"
+            },
+            {
+                "name": "accessWaitingTime",
+                "type": "double"
+            },
+            {
+                "name": "safetyWaitingTime",
+                "type": "double"
+            },
+            {
+                "name": "busynessWaitingTime",
+                "type": "double"
+            },
+            {
+                "name": "shutdownWaitingTime",
+                "type": "double"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "LockWorkload": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "OpeningDirection"
+        ],
+        "variables": [
+            {
+                "name": "time",
+                "type": "Time"
+            },
+            {
+                "name": "openingDirection",
+                "type": "OpeningDirection"
+            },
+            {
+                "name": "occupancyRate",
+                "type": "float"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "ships",
+                "type": "List<Ship>"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ProgressChangedObserver": {
+        "implements": ["Observer"],
+        "associations": [],
+        "variables": [{
+            "name": "progress",
+            "type": "int"
+        }],
+        "extends": null,
+        "type": "class"
+    },
+    "ShutdownManager": {
+        "implements": [],
+        "associations": ["Project"],
+        "variables": [
+            {
+                "name": "project",
+                "type": "Project"
+            },
+            {
+                "name": "MAX_ORD_ERLANG",
+                "type": "int"
+            },
+            {
+                "name": "T_SIGMA_SUR_M",
+                "type": "double[]"
+            },
+            {
+                "name": "ERL_COEFF_MIN",
+                "type": "float"
+            },
+            {
+                "name": "ERL_COEFF_MAX",
+                "type": "float"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ShipTypeLockTime": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "Time",
+            "Time",
+            "Time"
+        ],
+        "variables": [
+            {
+                "name": "lockId",
+                "type": "int"
+            },
+            {
+                "name": "shipTypeId",
+                "type": "int"
+            },
+            {
+                "name": "firstShipEnteringTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipsEnteringTime",
+                "type": "Time"
+            },
+            {
+                "name": "firstShipExitingTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipsExitingTime",
+                "type": "Time"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "TimeSlot": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "Time"
+        ],
+        "variables": [
+            {
+                "name": "start",
+                "type": "Time"
+            },
+            {
+                "name": "end",
+                "type": "Time"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Frandom": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "output",
+                "type": "BufferedReader"
+            },
+            {
+                "name": "error",
+                "type": "BufferedReader"
+            },
+            {
+                "name": "input",
+                "type": "PrintWriter"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "Postproc": {
+        "implements": [],
+        "associations": ["Project"],
+        "variables": [
+            {
+                "name": "project",
+                "type": "Project"
+            },
+            {
+                "name": "simTimeFraction",
+                "type": "float"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ErlangLawShip": {
+        "implements": [],
+        "associations": [
+            "ErlangLawOrder",
+            "TimeSlot"
+        ],
+        "variables": [
+            {
+                "name": "lawOrder",
+                "type": "ErlangLawOrder"
+            },
+            {
+                "name": "numberOfShips",
+                "type": "int"
+            },
+            {
+                "name": "timeSlot",
+                "type": "TimeSlot"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Random": {
+        "implements": [],
+        "associations": [
+            "RunMode",
+            "Frandom"
+        ],
+        "variables": [
+            {
+                "name": "runMode",
+                "type": "RunMode"
+            },
+            {
+                "name": "jrandom",
+                "type": "java.util.Random"
+            },
+            {
+                "name": "frandom",
+                "type": "Frandom"
+            },
+            {
+                "name": "currentFloat",
+                "type": "float"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "WaitCaracteristic": {
+        "implements": [],
+        "associations": ["WaitingTimesStats"],
+        "variables": [
+            {
+                "name": "waitingtimestats",
+                "type": "WaitingTimesStats"
+            },
+            {
+                "name": "shipNumber",
+                "type": "int"
+            },
+            {
+                "name": "shipNumberWaitingLessThan3min",
+                "type": "int"
+            },
+            {
+                "name": "shipNumberWaiting0min",
+                "type": "int"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ShipGenerationTime": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "days",
+                "type": "int"
+            },
+            {
+                "name": "hours",
+                "type": "int"
+            },
+            {
+                "name": "minutes",
+                "type": "int"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "TimeParser": {
+        "implements": [],
+        "associations": [],
+        "variables": [],
+        "extends": null,
+        "type": "class"
+    },
+    "Route": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "id",
+                "type": "int"
+            },
+            {
+                "generic_type": "NetworkItem",
+                "name": "elements",
+                "type": "List<NetworkItem>"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ShipEventType": {
+        "variables": [],
+        "values": [
+            "ARRIVAL",
+            "DEPARTURRE"
+        ],
+        "type": "enum"
+    },
+    "TrafficRule": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "waterwayId",
+                "type": "int"
+            },
+            {
+                "name": "ship1Id",
+                "type": "int"
+            },
+            {
+                "name": "ship2Id",
+                "type": "int"
+            },
+            {
+                "name": "isCrossingAllowed",
+                "type": "boolean"
+            },
+            {
+                "name": "isOvertakingAllowed",
+                "type": "boolean"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "ErlangLawOrder": {
+        "variables": [],
+        "values": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6",
+            "K7",
+            "K8",
+            "K9",
+            "K10"
+        ],
+        "type": "enum"
+    },
+    "NetworkLineItem": {
+        "implements": [],
+        "associations": ["Shutdowns"],
+        "variables": [
+            {
+                "name": "length",
+                "type": "float"
+            },
+            {
+                "name": "width",
+                "type": "float"
+            },
+            {
+                "name": "depth",
+                "type": "float"
+            },
+            {
+                "name": "upstreamStationId",
+                "type": "int"
+            },
+            {
+                "name": "downstreamStationId",
+                "type": "int"
+            },
+            {
+                "name": "shutdowns",
+                "type": "Shutdowns"
+            },
+            {
+                "generic_type": "Shutdown",
+                "name": "shutdownHistory",
+                "type": "List<Shutdown>"
+            },
+            {
+                "generic_type": "TimeSlot",
+                "name": "timeSlots",
+                "type": "List<TimeSlot>"
+            }
+        ],
+        "extends": "NetworkItem",
+        "type": "class"
+    },
+    "DataChangedObserver": {
+        "implements": ["Observer"],
+        "associations": [],
+        "variables": [{
+            "name": "isProjectSaved",
+            "type": "boolean"
+        }],
+        "extends": null,
+        "type": "class"
+    },
+    "ShipEvent": {
+        "implements": [],
+        "associations": [
+            "Ship",
+            "Time",
+            "NetworkItem",
+            "ShipEventType"
+        ],
+        "variables": [
+            {
+                "name": "ship",
+                "type": "Ship"
+            },
+            {
+                "name": "time",
+                "type": "Time"
+            },
+            {
+                "name": "networkItem",
+                "type": "NetworkItem"
+            },
+            {
+                "name": "shipEventType",
+                "type": "ShipEventType"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "DeterministicShutdown": {
+        "implements": [],
+        "associations": ["Time"],
+        "variables": [{
+            "name": "startTime",
+            "type": "Time"
+        }],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Priority": {
+        "variables": [],
+        "values": [
+            "LOW",
+            "NORMAL",
+            "HIGH"
+        ],
+        "type": "enum"
+    },
+    "Color": {
+        "implements": [],
+        "associations": [],
+        "variables": [],
+        "extends": "Color",
+        "type": "class"
+    },
+    "OpeningDirection": {
+        "variables": [],
+        "values": [
+            "INDETERMINED",
+            "UPSTREAM",
+            "DOWNSTREAM"
+        ],
+        "type": "enum"
+    },
+    "RoutePlanner": {
+        "implements": [],
+        "associations": [
+            "WaterwayNetwork",
+            "Ship"
+        ],
+        "variables": [
+            {
+                "name": "waterwayNetwork",
+                "type": "WaterwayNetwork"
+            },
+            {
+                "name": "shipTypeSchedule",
+                "type": "Ship"
+            },
+            {
+                "generic_type": "Route",
+                "name": "routes",
+                "type": "List<Route>"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "LoadingCondition": {
+        "variables": [],
+        "values": [
+            "LOADED",
+            "LIGHT"
+        ],
+        "type": "enum"
+    },
+    "ShipGenerationLawType": {
+        "variables": [],
+        "values": [
+            "RANDOM",
+            "DETERMINISTIC",
+            "DAY_BY_DAY"
+        ],
+        "type": "enum"
+    },
+    "Station": {
+        "implements": [],
+        "associations": ["Vertex"],
+        "variables": [
+            {
+                "name": "vertex",
+                "type": "Vertex"
+            },
+            {
+                "generic_type": "NetworkLineItem",
+                "name": "branches",
+                "type": "List<NetworkLineItem>"
+            },
+            {
+                "generic_type": "StationWorkload",
+                "name": "workloads",
+                "type": "List<StationWorkload>"
+            }
+        ],
+        "extends": "NetworkNodeItem",
+        "type": "class"
+    },
+    "Project": {
+        "implements": [],
+        "associations": [
+            "GeneralData",
+            "WaterwayNetwork",
+            "Solver"
+        ],
+        "variables": [
+            {
+                "name": "name",
+                "type": "String"
+            },
+            {
+                "name": "filePath",
+                "type": "Path"
+            },
+            {
+                "name": "generalData",
+                "type": "GeneralData"
+            },
+            {
+                "name": "waterwayNetwork",
+                "type": "WaterwayNetwork"
+            },
+            {
+                "name": "solver",
+                "type": "Solver"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "TransitTime": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "Time",
+            "Time",
+            "Time",
+            "Time"
+        ],
+        "variables": [
+            {
+                "name": "transitTime",
+                "type": "Time"
+            },
+            {
+                "name": "accessWaitingTime",
+                "type": "Time"
+            },
+            {
+                "name": "safetyWaitingTime",
+                "type": "Time"
+            },
+            {
+                "name": "busynessWaitingTime",
+                "type": "Time"
+            },
+            {
+                "name": "shutdownWaitingTime",
+                "type": "Time"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "Shutdown": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "Time",
+            "NetworkLineItem"
+        ],
+        "variables": [
+            {
+                "name": "id",
+                "type": "int"
+            },
+            {
+                "name": "startTime",
+                "type": "Time"
+            },
+            {
+                "name": "endTime",
+                "type": "Time"
+            },
+            {
+                "name": "shutItem",
+                "type": "NetworkLineItem"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "RunMode": {
+        "variables": [],
+        "values": [
+            "VALIDATION",
+            "RELEASE"
+        ],
+        "type": "enum"
+    },
+    "Shutdowns": {
+        "implements": [],
+        "associations": [
+            "ShutdownGenerationLawType",
+            "Time",
+            "RandomShutdown",
+            "Shutdown"
+        ],
+        "variables": [
+            {
+                "name": "shutdownGenerationLawType",
+                "type": "ShutdownGenerationLawType"
+            },
+            {
+                "generic_type": "DeterministicShutdown",
+                "name": "deterministicShutdowns",
+                "type": "List<DeterministicShutdown>"
+            },
+            {
+                "name": "meanDuration",
+                "type": "Time"
+            },
+            {
+                "name": "numberOfOccurences",
+                "type": "int"
+            },
+            {
+                "name": "randomShutdowns",
+                "type": "RandomShutdown"
+            },
+            {
+                "generic_type": "Shutdown",
+                "name": "shutdowns",
+                "type": "List<Shutdown>"
+            },
+            {
+                "name": "nextShutdown",
+                "type": "Shutdown"
+            },
+            {
+                "name": "deterministicShutdownsNeeded",
+                "type": "boolean"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Map": {
+        "implements": [],
+        "associations": ["Vertex"],
+        "variables": [
+            {
+                "name": "path",
+                "type": "Path"
+            },
+            {
+                "name": "scale",
+                "type": "float"
+            },
+            {
+                "name": "offset",
+                "type": "Vertex"
+            },
+            {
+                "name": "rotation",
+                "type": "float"
+            },
+            {
+                "name": "visible",
+                "type": "boolean"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "ShipType": {
+        "implements": [],
+        "associations": [
+            "Priority",
+            "LoadingCondition",
+            "Color"
+        ],
+        "variables": [
+            {
+                "name": "priority",
+                "type": "Priority"
+            },
+            {
+                "name": "length",
+                "type": "float"
+            },
+            {
+                "name": "beam",
+                "type": "float"
+            },
+            {
+                "name": "draught",
+                "type": "float"
+            },
+            {
+                "name": "loadingCondition",
+                "type": "LoadingCondition"
+            },
+            {
+                "generic_type": "TimeSlot",
+                "name": "timeSlots",
+                "type": "List<TimeSlot>"
+            },
+            {
+                "name": "color",
+                "type": "Color"
+            }
+        ],
+        "extends": "NetworkItem",
+        "type": "class"
+    },
+    "TravelTimeStats": {
+        "implements": [],
+        "associations": [
+            "ShipType",
+            "Time",
+            "Time",
+            "Time"
+        ],
+        "variables": [
+            {
+                "name": "shipType",
+                "type": "ShipType"
+            },
+            {
+                "name": "minimum",
+                "type": "Time"
+            },
+            {
+                "name": "maximum",
+                "type": "Time"
+            },
+            {
+                "name": "average",
+                "type": "Time"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "RandomShutdown": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "ErlangLawOrder",
+            "ErlangLawOrder",
+            "Time",
+            "Time",
+            "Time",
+            "Time",
+            "Time"
+        ],
+        "variables": [
+            {
+                "name": "meanSpread",
+                "type": "Time"
+            },
+            {
+                "name": "meanSpreadLawOrder",
+                "type": "ErlangLawOrder"
+            },
+            {
+                "name": "durationLawOrder",
+                "type": "ErlangLawOrder"
+            },
+            {
+                "name": "SpreadSum",
+                "type": "double"
+            },
+            {
+                "name": "spreadMeanSpreadSum",
+                "type": "Time"
+            },
+            {
+                "name": "spreadMeanDurationSum",
+                "type": "Time"
+            },
+            {
+                "name": "durationSum",
+                "type": "Time"
+            },
+            {
+                "name": "adjustingMeanSpread",
+                "type": "Time"
+            },
+            {
+                "name": "adjustingMeanDuration",
+                "type": "Time"
+            },
+            {
+                "name": "seed",
+                "type": "long"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Vertex": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "x",
+                "type": "float"
+            },
+            {
+                "name": "y",
+                "type": "float"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Solver": {
+        "implements": [],
+        "associations": [
+            "Events",
+            "Project",
+            "ShutdownManager",
+            "ShipGenerator",
+            "RunMode"
+        ],
+        "variables": [
+            {
+                "name": "events",
+                "type": "Events"
+            },
+            {
+                "name": "h_deb_stat",
+                "type": "int"
+            },
+            {
+                "name": "h_fin_stat",
+                "type": "int"
+            },
+            {
+                "name": "trajet_nb",
+                "type": "int"
+            },
+            {
+                "name": "nb_bat_arriv",
+                "type": "int"
+            },
+            {
+                "name": "tab_nb_bat",
+                "type": "int"
+            },
+            {
+                "name": "h_fin_sim",
+                "type": "double"
+            },
+            {
+                "name": "h_next_arriv",
+                "type": "double"
+            },
+            {
+                "name": "num_next_arriv",
+                "type": "int"
+            },
+            {
+                "name": "h_out_gare",
+                "type": "double"
+            },
+            {
+                "name": "h_out_chenal",
+                "type": "double"
+            },
+            {
+                "name": "h_out_ecl",
+                "type": "double"
+            },
+            {
+                "name": "project",
+                "type": "Project"
+            },
+            {
+                "name": "nLoops",
+                "type": "int"
+            },
+            {
+                "name": "myCounter",
+                "type": "int"
+            },
+            {
+                "name": "shutdownManager",
+                "type": "ShutdownManager"
+            },
+            {
+                "name": "shipGenerator",
+                "type": "ShipGenerator"
+            },
+            {
+                "name": "runMode",
+                "type": "RunMode"
+            },
+            {
+                "name": "progress",
+                "type": "int"
+            },
+            {
+                "name": "debug",
+                "type": "WriteData"
+            },
+            {
+                "name": "isCanceled",
+                "type": "boolean"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Time": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "minutes",
+                "type": "double"
+            },
+            {
+                "name": "PRECISION",
+                "type": "int"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "CheckModel": {
+        "implements": [],
+        "associations": ["Project"],
+        "variables": [{
+            "name": "project",
+            "type": "Project"
+        }],
+        "extends": null,
+        "type": "class"
+    },
+    "Direction": {
+        "variables": [],
+        "values": [
+            "UPSTREAM",
+            "DOWNSTREAM",
+            "INDETERMINED"
+        ],
+        "type": "enum"
+    },
+    "ErlangValue": {
+        "implements": [],
+        "associations": ["Random"],
+        "variables": [
+            {
+                "name": "MAX_ORD_ERLANG",
+                "type": "int"
+            },
+            {
+                "name": "T_SIGMA_SUR_M",
+                "type": "double[]"
+            },
+            {
+                "name": "ERL_COEFF_MIN",
+                "type": "float"
+            },
+            {
+                "name": "ERL_COEFF_MAX",
+                "type": "float"
+            },
+            {
+                "name": "random",
+                "type": "Random"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "Events": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "Time",
+            "Time",
+            "Time",
+            "Time",
+            "Time",
+            "Time",
+            "Ship",
+            "Ship",
+            "Ship",
+            "Ship",
+            "Time",
+            "Time",
+            "Time"
+        ],
+        "variables": [
+            {
+                "name": "simulationEndTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextWaterwayShutdownEndTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextLockShutdownEndTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipArrivalTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipDepartureFromStationTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipDepartureFromLockTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipDepartureFromWaterwayTime",
+                "type": "Time"
+            },
+            {
+                "name": "nextShipArrival",
+                "type": "Ship"
+            },
+            {
+                "name": "nextShipDepartureFromStation",
+                "type": "Ship"
+            },
+            {
+                "name": "nextShipDepartureFromLock",
+                "type": "Ship"
+            },
+            {
+                "name": "nextShipDepartureFromWaterway",
+                "type": "Ship"
+            },
+            {
+                "name": "statsStartTime",
+                "type": "Time"
+            },
+            {
+                "name": "statsStopTime",
+                "type": "Time"
+            },
+            {
+                "name": "currentTime",
+                "type": "Time"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "WaterConsumptionStats": {
+        "implements": [],
+        "associations": ["Lock"],
+        "variables": [
+            {
+                "name": "lock",
+                "type": "Lock"
+            },
+            {
+                "name": "numberOfNonEmptyLockings",
+                "type": "int"
+            },
+            {
+                "name": "numberOfEmptyLockings",
+                "type": "int"
+            },
+            {
+                "name": "totalNumberOfLockings",
+                "type": "int"
+            },
+            {
+                "name": "nonEmptyLockingWaterConsumption",
+                "type": "float"
+            },
+            {
+                "name": "emptyLockingWaterConsumption",
+                "type": "float"
+            },
+            {
+                "name": "totalWaterConsumption",
+                "type": "float"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "GeneralData": {
+        "implements": [],
+        "associations": [
+            "Random",
+            "Map"
+        ],
+        "variables": [
+            {
+                "name": "seed",
+                "type": "int"
+            },
+            {
+                "name": "random",
+                "type": "Random"
+            },
+            {
+                "name": "map",
+                "type": "Map"
+            },
+            {
+                "name": "numberOfSimulationDays",
+                "type": "int"
+            },
+            {
+                "name": "numberOfPassages",
+                "type": "int"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "ShutdownGenerationLawType": {
+        "variables": [],
+        "values": [
+            "RANDOM",
+            "DETERMINISTIC"
+        ],
+        "type": "enum"
+    },
+    "LockingType": {
+        "variables": [],
+        "values": [
+            "INDETERMINED",
+            "NON_EMPTY",
+            "EMPTY"
+        ],
+        "type": "enum"
+    },
+    "DayByDayLaw": {
+        "implements": [],
+        "associations": ["Time"],
+        "variables": [{
+            "name": "time",
+            "type": "Time"
+        }],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "ShipStats": {
+        "implements": [],
+        "associations": ["ShipType"],
+        "variables": [
+            {
+                "name": "shipType",
+                "type": "ShipType"
+            },
+            {
+                "name": "generatedNumber",
+                "type": "int"
+            },
+            {
+                "name": "generatedPercent",
+                "type": "float"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "Locking": {
+        "implements": [],
+        "associations": [
+            "LockingType",
+            "Time",
+            "OpeningDirection"
+        ],
+        "variables": [
+            {
+                "name": "lockingType",
+                "type": "LockingType"
+            },
+            {
+                "name": "time",
+                "type": "Time"
+            },
+            {
+                "name": "openingDirection",
+                "type": "OpeningDirection"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ShipTypeSpeed": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "shipId",
+                "type": "int"
+            },
+            {
+                "name": "waterwayId",
+                "type": "int"
+            },
+            {
+                "name": "upstreamSpeed",
+                "type": "double"
+            },
+            {
+                "name": "downstreamSpeed",
+                "type": "double"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Waterway": {
+        "implements": [],
+        "associations": [],
+        "variables": [{
+            "name": "speedLimit",
+            "type": "float"
+        }],
+        "extends": "NetworkLineItem",
+        "type": "class"
+    },
+    "DeterministicLaw": {
+        "implements": [],
+        "associations": ["ShipGenerationTime"],
+        "variables": [{
+            "name": "shipGenerationTime",
+            "type": "ShipGenerationTime"
+        }],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "TimeLengthStats": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "name": "arrTimes",
+                "type": "double"
+            },
+            {
+                "name": "depTimes",
+                "type": "double"
+            },
+            {
+                "name": "busTimes",
+                "type": "double"
+            },
+            {
+                "name": "shipId",
+                "type": "int"
+            },
+            {
+                "name": "shipType",
+                "type": "int"
+            },
+            {
+                "name": "shipLength",
+                "type": "float"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "StationWorkload": {
+        "implements": [],
+        "associations": ["Time"],
+        "variables": [
+            {
+                "name": "time",
+                "type": "Time"
+            },
+            {
+                "name": "waitingLineLength",
+                "type": "float"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "ships",
+                "type": "List<Ship>"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "Lock": {
+        "implements": [],
+        "associations": [
+            "Time",
+            "Time",
+            "OpeningDirection",
+            "Time",
+            "SpaceAllocation"
+        ],
+        "variables": [
+            {
+                "name": "fallHeight",
+                "type": "float"
+            },
+            {
+                "name": "fillingTime",
+                "type": "Time"
+            },
+            {
+                "name": "drainingTime",
+                "type": "Time"
+            },
+            {
+                "name": "openingDirection",
+                "type": "OpeningDirection"
+            },
+            {
+                "name": "lastFillingOrDrainingHour",
+                "type": "Time"
+            },
+            {
+                "name": "newLocking",
+                "type": "boolean"
+            },
+            {
+                "name": "moduleLength",
+                "type": "float"
+            },
+            {
+                "name": "spaceAllocation",
+                "type": "SpaceAllocation"
+            },
+            {
+                "generic_type": "Locking",
+                "name": "lockings",
+                "type": "List<Locking>"
+            },
+            {
+                "generic_type": "LockWorkload",
+                "name": "workloads",
+                "type": "List<LockWorkload>"
+            }
+        ],
+        "extends": "NetworkLineItem",
+        "type": "class"
+    },
+    "NetworkNodeItem": {
+        "implements": [],
+        "associations": [],
+        "variables": [],
+        "extends": "NetworkItem",
+        "type": "class"
+    },
+    "Checkpoint": {
+        "implements": [],
+        "associations": [
+            "NetworkItem",
+            "Time",
+            "Time",
+            "TransitTime",
+            "Direction"
+        ],
+        "variables": [
+            {
+                "name": "networkItem",
+                "type": "NetworkItem"
+            },
+            {
+                "name": "arrivalTime",
+                "type": "Time"
+            },
+            {
+                "name": "departureTime",
+                "type": "Time"
+            },
+            {
+                "name": "transitTime",
+                "type": "TransitTime"
+            },
+            {
+                "name": "shipDirection",
+                "type": "Direction"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Type": {
+        "variables": [],
+        "values": [
+            "STATION",
+            "LOCK",
+            "WATERWAY"
+        ],
+        "type": "enum"
+    },
+    "SpaceAllocation": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "generic_type": "Integer",
+                "name": "leftSideShipId",
+                "type": "List<Integer>"
+            },
+            {
+                "generic_type": "Integer",
+                "name": "rightSideShipId",
+                "type": "List<Integer>"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "DataChangedObserverNouveau": {
+        "implements": ["PropertyChangeListener"],
+        "associations": [],
+        "variables": [
+            {
+                "name": "manager",
+                "type": "Manager"
+            },
+            {
+                "name": "isProjectSaved",
+                "type": "boolean"
+            },
+            {
+                "name": "isSolverRunning",
+                "type": "boolean"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "Results": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "generic_type": "ShipStats",
+                "name": "shipStats",
+                "type": "List<ShipStats>"
+            },
+            {
+                "generic_type": "TravelTimeStats",
+                "name": "travelTimeStats",
+                "type": "List<TravelTimeStats>"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "ShipGenerator": {
+        "implements": [],
+        "associations": [
+            "Project",
+            "Random"
+        ],
+        "variables": [
+            {
+                "name": "TAG",
+                "type": "String"
+            },
+            {
+                "name": "project",
+                "type": "Project"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "ships",
+                "type": "List<Ship>"
+            },
+            {
+                "name": "nextShipIndex",
+                "type": "int"
+            },
+            {
+                "name": "MAX_ORD_ERLANG",
+                "type": "int"
+            },
+            {
+                "name": "T_SIGMA_SUR_M",
+                "type": "double[]"
+            },
+            {
+                "name": "ERL_COEFF_MIN",
+                "type": "float"
+            },
+            {
+                "name": "ERL_COEFF_MAX",
+                "type": "float"
+            },
+            {
+                "name": "random",
+                "type": "Random"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    },
+    "WaterwayNetwork": {
+        "implements": ["Observer"],
+        "associations": [
+            "Shutdown",
+            "Shutdown"
+        ],
+        "variables": [
+            {
+                "generic_type": "Station",
+                "name": "stations",
+                "type": "List<Station>"
+            },
+            {
+                "generic_type": "Waterway",
+                "name": "waterways",
+                "type": "List<Waterway>"
+            },
+            {
+                "generic_type": "Lock",
+                "name": "locks",
+                "type": "List<Lock>"
+            },
+            {
+                "generic_type": "ShipType",
+                "name": "shipTypes",
+                "type": "List<ShipType>"
+            },
+            {
+                "generic_type": "ShipTypeLockTime",
+                "name": "shipTypeLockTimes",
+                "type": "List<ShipTypeLockTime>"
+            },
+            {
+                "generic_type": "TrafficRule",
+                "name": "trafficRules",
+                "type": "List<TrafficRule>"
+            },
+            {
+                "generic_type": "ShipTypeSpeed",
+                "name": "shipTypeSpeeds",
+                "type": "List<ShipTypeSpeed>"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "shipTypeSchedules",
+                "type": "List<Ship>"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "ships",
+                "type": "List<Ship>"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "shipHistory",
+                "type": "List<Ship>"
+            },
+            {
+                "name": "nextWaterwayShutdown",
+                "type": "Shutdown"
+            },
+            {
+                "name": "nextLockShutdown",
+                "type": "Shutdown"
+            },
+            {
+                "name": "numberOfNetworkLineItems",
+                "type": "int"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "NetworkItem": {
+        "implements": ["Identifiable"],
+        "associations": ["Type"],
+        "variables": [
+            {
+                "name": "id",
+                "type": "int"
+            },
+            {
+                "name": "name",
+                "type": "String"
+            },
+            {
+                "name": "type",
+                "type": "Type"
+            },
+            {
+                "generic_type": "Ship",
+                "name": "ships",
+                "type": "List<Ship>"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "Ship": {
+        "implements": ["Comparable"],
+        "associations": [
+            "Direction",
+            "ShipGenerationLawType",
+            "ErlangLawShip",
+            "Time",
+            "Route"
+        ],
+        "variables": [
+            {
+                "name": "id",
+                "type": "int"
+            },
+            {
+                "name": "shipTypeId",
+                "type": "int"
+            },
+            {
+                "name": "startStationId",
+                "type": "int"
+            },
+            {
+                "name": "endStationId",
+                "type": "int"
+            },
+            {
+                "name": "direction",
+                "type": "Direction"
+            },
+            {
+                "name": "generationLaw",
+                "type": "ShipGenerationLawType"
+            },
+            {
+                "name": "erlangLaw",
+                "type": "ErlangLawShip"
+            },
+            {
+                "generic_type": "DeterministicShutdown",
+                "name": "deterministicLaws",
+                "type": "List<DeterministicShutdown>"
+            },
+            {
+                "generic_type": "DayByDayLaw",
+                "name": "dayByDayLaws",
+                "type": "List<DayByDayLaw>"
+            },
+            {
+                "name": "generationTime",
+                "type": "Time"
+            },
+            {
+                "generic_type": "Route",
+                "name": "routes",
+                "type": "List<Route>"
+            },
+            {
+                "name": "currentRoute",
+                "type": "Route"
+            },
+            {
+                "generic_type": "Checkpoint",
+                "name": "checkpoints",
+                "type": "List<Checkpoint>"
+            }
+        ],
+        "extends": "Observable",
+        "type": "class"
+    },
+    "WaitingTimesStats": {
+        "implements": [],
+        "associations": [
+            "ShipType",
+            "NetworkLineItem",
+            "Direction",
+            "TransitTime",
+            "TransitTime"
+        ],
+        "variables": [
+            {
+                "name": "shipType",
+                "type": "ShipType"
+            },
+            {
+                "name": "networkLineItem",
+                "type": "NetworkLineItem"
+            },
+            {
+                "name": "shipDirection",
+                "type": "Direction"
+            },
+            {
+                "name": "totalWaitingTimes",
+                "type": "TransitTime"
+            },
+            {
+                "name": "averageWaitingTimes",
+                "type": "TransitTime"
+            },
+            {
+                "name": "numberOfAccessWaitingShips",
+                "type": "int"
+            },
+            {
+                "name": "numberOfSafetyWaitingShips",
+                "type": "int"
+            },
+            {
+                "name": "numberOfBusynessWaitingShips",
+                "type": "int"
+            },
+            {
+                "name": "numberOfShutdownWaitingShips",
+                "type": "int"
+            }
+        ],
+        "extends": null,
+        "type": "class"
+    }
+}
