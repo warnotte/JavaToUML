@@ -28,8 +28,10 @@ import com.github.javaparser.ast.type.Type;
 public class JavaClassInspector {
 
     public static void main(String[] args) {
+    	// TODO : SVG
+    	// TODO : N'exclut pas Logger ??
     	String dir = "testDatas\\set1";
-        Set<String> excluded = new HashSet<>(List.of("PropertyChangeSupport", "ClasseBExclure", "EnumExclu"));
+        Set<String> excluded = new HashSet<>(List.of("PropertyChangeSupport", "Logger", "EnumExclu"));
         String jsonOutfile = "classes.json";
 
         process(dir, excluded, jsonOutfile);
@@ -110,9 +112,8 @@ public class JavaClassInspector {
 						}
 					});
                     classInfo.put("implements", implementedTypes);
-
-                    JSONArray associations1to1 = new JSONArray();
-                    JSONArray associations0toN = new JSONArray();
+                    JSONArray associations = new JSONArray();
+                    
                     
                     Set<String> associations0toNavoidDupe = new HashSet<String>();
 
@@ -123,7 +124,7 @@ public class JavaClassInspector {
                         	JSONObject varInfo = new JSONObject();
                             Type varType = var.getType();
                             String typeName = varType.toString();
-
+  
                             if (excludedClasses.contains(typeName)) continue;
 
                             String accessModifier = field.getModifiers().stream()
@@ -153,19 +154,25 @@ public class JavaClassInspector {
 											if (classNames.contains(genericType) || enumNames.contains(genericType)) {
 												if (associations0toNavoidDupe.contains(genericType)==false)
 												{
-													// Relation 0-N
-													associations0toN.put(genericType);
 													associations0toNavoidDupe.add(genericType);
+													
+														JSONObject relInfo = new JSONObject();
+														relInfo.put("name", genericType);
+														relInfo.put("relationType", relType._0N.toString()/*"0-N"*/);
+														associations.put(relInfo);
+													
 												}
 											}
 										}
 									}
 								}
 							}
-							
-							// Relation 1-1
+
 							if (classNames.contains(typeName) || enumNames.contains(typeName)) {
-								associations1to1.put(typeName);
+								JSONObject relInfo = new JSONObject();
+								relInfo.put("name", typeName);
+								relInfo.put("relationType", relType._11.toString()/*"1-1"*/);
+								associations.put(relInfo);
 							}
 
                             
@@ -176,28 +183,12 @@ public class JavaClassInspector {
                     System.out.println("\tMethods : "+cls.getMethods().size());
 
                     for (MethodDeclaration method : cls.getMethods()) {
-                        JSONObject methodInfo = new JSONObject();
-                        String returnType = method.getType().toString();
-                        String accessModifier = method.getModifiers().stream()
-                                .map(m -> m.getKeyword().asString())
-                                .findFirst()
-                                .orElse("default");
-                        boolean isAbstract = method.isAbstract();
-                        
-                        JSONArray annotations = new JSONArray();
-                        method.getAnnotations().forEach(ann -> annotations.put(parseAnnotation(ann)));
-
-                        methodInfo.put("name", method.getNameAsString());
-                        methodInfo.put("returnType", returnType);
-                        methodInfo.put("access", accessModifier);
-                        methodInfo.put("annotations", annotations);
-                        methodInfo.put("isAbstract", isAbstract);
-                        
-                        classInfo.getJSONArray("methods").put(methodInfo);
+                    	String returnType = method.getType().toString();
+                        if (excludedClasses.contains(returnType)) continue;
+                        MethodToJSON(classInfo, method);
                     }
 
-                    classInfo.put("associations1to1", associations1to1);
-                    classInfo.put("associations0toN", associations0toN);
+                    classInfo.put("associations", associations);
                     classes.put(className, classInfo);
                 });
                 
@@ -220,26 +211,8 @@ public class JavaClassInspector {
 					enumDecl.getEntries().forEach(entry -> enumValues.put(entry.getNameAsString()));
 					enumInfo.put("values", enumValues);
 
-					// TODO : Duplicata du dessus ... grrr
 					for (MethodDeclaration method : enumDecl.getMethods()) {
-                        JSONObject methodInfo = new JSONObject();
-                        String returnType = method.getType().toString();
-                        String accessModifier = method.getModifiers().stream()
-                                .map(m -> m.getKeyword().asString())
-                                .findFirst()
-                                .orElse("default");
-                        boolean isAbstract = method.isAbstract();
-                        
-                        JSONArray annotations = new JSONArray();
-                        method.getAnnotations().forEach(ann -> annotations.put(parseAnnotation(ann)));
-
-                        methodInfo.put("name", method.getNameAsString());
-                        methodInfo.put("returnType", returnType);
-                        methodInfo.put("access", accessModifier);
-                        methodInfo.put("annotations", annotations);
-                        methodInfo.put("isAbstract", isAbstract);
-                        
-                        enumInfo.getJSONArray("methods").put(methodInfo);
+						MethodToJSON(enumInfo, method);
                     }
 					
 					
@@ -253,6 +226,43 @@ public class JavaClassInspector {
         }
         return classes;
     }
+
+	private static void MethodToJSON(JSONObject enumInfo, MethodDeclaration method) {
+		// DUNNO WHY I HAVE DUPLICATED STUFF ... should do that i made a regression somewhere
+		if (true)
+		{
+		  String methodSignature = method.getNameAsString() + method.getType().toString();
+		    
+		    // Vérifier si la méthode est déjà ajoutée
+		    JSONArray methodsArray = enumInfo.getJSONArray("methods");
+		    for (int i = 0; i < methodsArray.length(); i++) {
+		        JSONObject existingMethod = methodsArray.getJSONObject(i);
+		        String existingSignature = existingMethod.getString("name") + existingMethod.getString("returnType");
+		        if (existingSignature.equals(methodSignature)) {
+		            return; // La méthode existe déjà, on évite de l'ajouter
+		        }
+		    }
+		}
+		
+		JSONObject methodInfo = new JSONObject();
+		String returnType = method.getType().toString();
+		String accessModifier = method.getModifiers().stream()
+		        .map(m -> m.getKeyword().asString())
+		        .findFirst()
+		        .orElse("default");
+		boolean isAbstract = method.isAbstract();
+		
+		JSONArray annotations = new JSONArray();
+		method.getAnnotations().forEach(ann -> annotations.put(parseAnnotation(ann)));
+
+		methodInfo.put("name", method.getNameAsString());
+		methodInfo.put("returnType", returnType);
+		methodInfo.put("access", accessModifier);
+		methodInfo.put("annotations", annotations);
+		methodInfo.put("isAbstract", isAbstract);
+		
+		enumInfo.getJSONArray("methods").put(methodInfo);
+	}
     
     private static JSONObject parseAnnotation(AnnotationExpr annotation) {
         JSONObject annotationInfo = new JSONObject();

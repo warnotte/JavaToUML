@@ -24,7 +24,7 @@ public class UMLDiagramGenerator {
 
 	static void process(String jsonFilePath, String outputImagePath) {
 
-		boolean writeMethods = false;
+		boolean writeMethods = true;
 		
 		try {
 			// Charger le JSON
@@ -89,13 +89,13 @@ public class UMLDiagramGenerator {
 				// Appliquer un style différent pour les classes, interfaces et enums
 				Node classNodeGraph;
 				if (type.equals("interface")) {
-					classNodeGraph = node(className).with(Label.raw(label.toString()), Shape.RECORD, Style.SOLID, Color.ORANGE);
+					classNodeGraph = node(className).with(Label.raw(label.toString()), Shape.RECORD, Style.ROUNDED, Color.ORANGE);
 				} else if (type.equals("enum")) {
-					classNodeGraph = node(className).with(Label.raw(label.toString()), Shape.RECORD, Style.SOLID, Color.GRAY);
+					classNodeGraph = node(className).with(Label.raw(label.toString()), Shape.RECORD, Style.ROUNDED, Color.GRAY);
 				} else {
-					classNodeGraph = node(className).with(Label.raw(label.toString()), Shape.RECORD, Style.SOLID, Color.BLACK);
+					classNodeGraph = node(className).with(Label.raw(label.toString()), Shape.RECORD, Style.FILLED, Color.rgba("#00008040")/*Color.BLUE*/);
 				}
-
+				
 				// Héritage (extends)
 				if (classNode.has("extends") && !classNode.get("extends").isNull()) {
 					String parentClass = sanitizeString(classNode.get("extends").asText());
@@ -125,7 +125,7 @@ public class UMLDiagramGenerator {
 					}
 				}*/
 				
-				if (classNode.has("associations1to1")) {
+			/*	if (classNode.has("associations1to1")) {
 					for (JsonNode implementedInterface : classNode.get("associations1to1")) {
 						String interfaceName = sanitizeString(implementedInterface.asText());
 						g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.NONE, Style.SOLID)));
@@ -138,7 +138,24 @@ public class UMLDiagramGenerator {
 						g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID)));
 						//g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID, Style.tapered(1, DirType.BOTH))));
 					}
+				}*/
+				
+				if (classNode.has("associations")) {
+					for (JsonNode implementedInterface : classNode.get("associations")) {
+						String interfaceName = sanitizeString(implementedInterface.get("name").asText());
+						String relationType = sanitizeString(implementedInterface.get("relationType").asText());
+						if (relationType.equals(relType._0N.toString()))
+							g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID, Label.of(relationType))));
+						else
+							g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.NONE, Style.SOLID, Label.of(relationType))));
+						
+					//	g = g.with(node(interfaceName).with(Shape.RECORD, Color.ORANGE).link(to(classNodeGraph).with(Arrow.VEE, Style.DASHED)));
+						
+					
+					}
 				}
+				
+				
 				
 
 				g = g.with(classNodeGraph);

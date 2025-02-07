@@ -14,7 +14,7 @@ public class main {
 	public static void main(String[] args) throws IOException {
 		
 		String dir = "testDatas\\set1";
-		Set<String> excluded = new HashSet<>(List.of("PropertyChangeSupport", "ClasseBExclure", "EnumExclu"));
+		Set<String> excluded = new HashSet<>(List.of("PropertyChangeSupport", "Logger", "EnumExclu"));
 		String jsonFilePath = "classes.json";
 		
 		JavaClassInspector.process(dir, excluded, jsonFilePath);

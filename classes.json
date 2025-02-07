@@ -1,6 +1,10 @@
 {
     "OLD_WindSettings": {
         "implements": [],
+        "associations": [{
+            "relationType": "1-1",
+            "name": "typeCalculVent"
+        }],
         "variables": [
             {
                 "access": "default",
@@ -65,13 +69,6 @@
         ],
         "extends": null,
         "methods": [
-            {
-                "access": "public",
-                "name": "getPcs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "PropertyChangeSupport"
-            },
             {
                 "access": "public",
                 "name": "main",
@@ -316,12 +313,11 @@
                 "returnType": "void"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": ["typeCalculVent"],
         "type": "class"
     },
     "Vertex2D": {
         "implements": [],
+        "associations": [],
         "variables": [
             {
                 "access": "public",
@@ -367,12 +363,11 @@
                 "returnType": "void"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "FEMNode": {
         "implements": [],
+        "associations": [],
         "variables": [{
             "access": "default",
             "name": "id",
@@ -403,12 +398,11 @@
                 "returnType": "String"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "Flotteur_Circulaire": {
         "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -501,12 +495,14 @@
                 "returnType": "double"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "TraceContour": {
         "implements": [],
+        "associations": [{
+            "relationType": "0-N",
+            "name": "Vertex2D"
+        }],
         "variables": [
             {
                 "access": "default",
@@ -633,8 +629,6 @@
                 "returnType": "String"
             }
         ],
-        "associations0toN": ["Vertex2D"],
-        "associations1to1": [],
         "type": "class"
     },
     "TypeFlotteur": {
@@ -652,6 +646,7 @@
             "Identifiable",
             "Cloneable"
         ],
+        "associations": [],
         "variables": [{
             "access": "default",
             "name": "id",
@@ -660,13 +655,6 @@
         }],
         "extends": null,
         "methods": [
-            {
-                "access": "public",
-                "name": "getPcs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "PropertyChangeSupport"
-            },
             {
                 "access": "public",
                 "name": "getId",
@@ -689,12 +677,11 @@
                 "returnType": "Object"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "Ilot": {
         "implements": [],
+        "associations": [],
         "variables": [],
         "extends": "MapModelItem",
         "methods": [
@@ -720,12 +707,11 @@
                 "returnType": "String"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "Flotteur_Prismatique": {
         "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -837,8 +823,6 @@
                 "returnType": "double"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "typeCalculVent": {
@@ -862,13 +846,8 @@
     },
     "MapModelItem": {
         "implements": [],
+        "associations": [],
         "variables": [
-            {
-                "access": "protected",
-                "name": "logger",
-                "annotations": [],
-                "type": "Logger"
-            },
             {
                 "access": "protected",
                 "name": "name",
@@ -973,12 +952,11 @@
                 "returnType": "void"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "ObjetSurFlotteur": {
         "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -1001,13 +979,6 @@
                 "annotations": [],
                 "isAbstract": false,
                 "returnType": "ObjetSurFlotteur"
-            },
-            {
-                "access": "public",
-                "name": "getPcs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "PropertyChangeSupport"
             },
             {
                 "access": "public",
@@ -1064,12 +1035,14 @@
                 "returnType": "TypeObjetSurFlotteur"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "PanneauSolaire": {
         "implements": ["Cloneable"],
+        "associations": [{
+            "relationType": "1-1",
+            "name": "Direction"
+        }],
         "variables": [
             {
                 "access": "default",
@@ -1325,12 +1298,11 @@
                 "returnType": "double"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": ["Direction"],
         "type": "class"
     },
     "Flotteur": {
         "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -1621,8 +1593,6 @@
                 "returnType": "TypeFlotteur"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "DENSITY": {
@@ -1655,6 +1625,7 @@
     },
     "IlotInstance": {
         "implements": [],
+        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -1798,8 +1769,6 @@
                 "returnType": "void"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "TypeObjetSurFlotteur": {
@@ -1813,13 +1782,33 @@
     },
     "Model": {
         "implements": [],
-        "variables": [
+        "associations": [
             {
-                "access": "protected",
-                "name": "logger",
-                "annotations": [],
-                "type": "Logger"
+                "relationType": "0-N",
+                "name": "Flotteur"
             },
+            {
+                "relationType": "0-N",
+                "name": "Ilot"
+            },
+            {
+                "relationType": "0-N",
+                "name": "IlotInstance"
+            },
+            {
+                "relationType": "0-N",
+                "name": "ObjetSurFlotteur"
+            },
+            {
+                "relationType": "0-N",
+                "name": "TraceContour"
+            },
+            {
+                "relationType": "1-1",
+                "name": "Settings"
+            }
+        ],
+        "variables": [
             {
                 "access": "default",
                 "name": "fileXMLVersion",
@@ -1884,13 +1873,6 @@
         "methods": [
             {
                 "access": "public",
-                "name": "getPcs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "PropertyChangeSupport"
-            },
-            {
-                "access": "public",
                 "name": "getName",
                 "annotations": [],
                 "isAbstract": false,
@@ -1919,13 +1901,6 @@
             },
             {
                 "access": "public",
-                "name": "getFlotteurs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "List<Flotteur>"
-            },
-            {
-                "access": "public",
                 "name": "getObjetSurFlotteur",
                 "annotations": [],
                 "isAbstract": false,
@@ -1937,13 +1912,6 @@
                 "annotations": [],
                 "isAbstract": false,
                 "returnType": "void"
-            },
-            {
-                "access": "public",
-                "name": "getObjetSurFlotteur",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "List<ObjetSurFlotteur>"
             },
             {
                 "access": "private",
@@ -2017,24 +1985,10 @@
             },
             {
                 "access": "public",
-                "name": "addObjetSurFlotteur",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "ObjetSurFlotteur"
-            },
-            {
-                "access": "public",
                 "name": "addIlot",
                 "annotations": [],
                 "isAbstract": false,
                 "returnType": "Ilot"
-            },
-            {
-                "access": "public",
-                "name": "addIlotInstance",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "IlotInstance"
             },
             {
                 "access": "public",
@@ -2156,25 +2110,15 @@
                 "returnType": "void"
             }
         ],
-        "associations0toN": [
-            "Flotteur",
-            "Ilot",
-            "IlotInstance",
-            "ObjetSurFlotteur",
-            "TraceContour"
-        ],
-        "associations1to1": ["Settings"],
         "type": "class"
     },
     "WindSettings": {
         "implements": [],
+        "associations": [{
+            "relationType": "1-1",
+            "name": "typeCalculVent"
+        }],
         "variables": [
-            {
-                "access": "protected",
-                "name": "logger",
-                "annotations": [],
-                "type": "Logger"
-            },
             {
                 "access": "default",
                 "name": "typeCalcul",
@@ -2256,13 +2200,6 @@
         ],
         "extends": null,
         "methods": [
-            {
-                "access": "public",
-                "name": "getPcs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "PropertyChangeSupport"
-            },
             {
                 "access": "public",
                 "name": "main",
@@ -2592,12 +2529,11 @@
                 "returnType": "void"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": ["typeCalculVent"],
         "type": "class"
     },
     "AutreObjetSurFlotteur": {
         "implements": [],
+        "associations": [],
         "variables": [],
         "extends": "ObjetSurFlotteur",
         "methods": [
@@ -2623,12 +2559,11 @@
                 "returnType": "TypeObjetSurFlotteur"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "Flotteur_Triangle": {
         "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -2740,12 +2675,14 @@
                 "returnType": "double"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": [],
         "type": "class"
     },
     "Settings": {
         "implements": [],
+        "associations": [{
+            "relationType": "1-1",
+            "name": "WindSettings"
+        }],
         "variables": [
             {
                 "access": "default",
@@ -2768,13 +2705,6 @@
         ],
         "extends": null,
         "methods": [
-            {
-                "access": "public",
-                "name": "getPcs",
-                "annotations": [],
-                "isAbstract": false,
-                "returnType": "PropertyChangeSupport"
-            },
             {
                 "access": "public",
                 "name": "getWindSettings",
@@ -2837,8 +2767,6 @@
                 "returnType": "String"
             }
         ],
-        "associations0toN": [],
-        "associations1to1": ["WindSettings"],
         "type": "class"
     }
 }
