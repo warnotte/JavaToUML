@@ -1,7 +1,6 @@
 {
     "OLD_WindSettings": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -317,11 +316,12 @@
                 "returnType": "void"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": ["typeCalculVent"],
         "type": "class"
     },
     "Vertex2D": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "public",
@@ -367,11 +367,12 @@
                 "returnType": "void"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "FEMNode": {
         "implements": [],
-        "associations": [],
         "variables": [{
             "access": "default",
             "name": "id",
@@ -402,11 +403,12 @@
                 "returnType": "String"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "Flotteur_Circulaire": {
         "implements": ["Cloneable"],
-        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -499,11 +501,12 @@
                 "returnType": "double"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "TraceContour": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -531,12 +534,14 @@
             },
             {
                 "access": "default",
+                "generic_type": "Vertex2D",
                 "name": "listPoints",
                 "annotations": [],
                 "type": "List<Vertex2D>"
             },
             {
                 "access": "transient",
+                "generic_type": "Vertex2D",
                 "name": "listPointsAtZero",
                 "annotations": [],
                 "type": "List<Vertex2D>"
@@ -628,6 +633,8 @@
                 "returnType": "String"
             }
         ],
+        "associations0toN": ["Vertex2D"],
+        "associations1to1": [],
         "type": "class"
     },
     "TypeFlotteur": {
@@ -645,7 +652,6 @@
             "Identifiable",
             "Cloneable"
         ],
-        "associations": [],
         "variables": [{
             "access": "default",
             "name": "id",
@@ -683,11 +689,12 @@
                 "returnType": "Object"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "Ilot": {
         "implements": [],
-        "associations": [],
         "variables": [],
         "extends": "MapModelItem",
         "methods": [
@@ -713,11 +720,12 @@
                 "returnType": "String"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "Flotteur_Prismatique": {
         "implements": ["Cloneable"],
-        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -829,6 +837,8 @@
                 "returnType": "double"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "typeCalculVent": {
@@ -852,7 +862,6 @@
     },
     "MapModelItem": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "protected",
@@ -964,11 +973,12 @@
                 "returnType": "void"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "ObjetSurFlotteur": {
         "implements": ["Cloneable"],
-        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -1054,11 +1064,12 @@
                 "returnType": "TypeObjetSurFlotteur"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "PanneauSolaire": {
         "implements": ["Cloneable"],
-        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -1314,11 +1325,12 @@
                 "returnType": "double"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": ["Direction"],
         "type": "class"
     },
     "Flotteur": {
         "implements": ["Cloneable"],
-        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -1609,6 +1621,8 @@
                 "returnType": "TypeFlotteur"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "DENSITY": {
@@ -1641,7 +1655,6 @@
     },
     "IlotInstance": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -1785,6 +1798,8 @@
                 "returnType": "void"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "TypeObjetSurFlotteur": {
@@ -1798,7 +1813,6 @@
     },
     "Model": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "protected",
@@ -1814,24 +1828,28 @@
             },
             {
                 "access": "default",
+                "generic_type": "Flotteur",
                 "name": "flotteurs",
                 "annotations": [],
                 "type": "List<Flotteur>"
             },
             {
                 "access": "default",
+                "generic_type": "Ilot",
                 "name": "ilots",
                 "annotations": [],
                 "type": "List<Ilot>"
             },
             {
                 "access": "default",
+                "generic_type": "IlotInstance",
                 "name": "ilotsinstances",
                 "annotations": [],
                 "type": "List<IlotInstance>"
             },
             {
                 "access": "default",
+                "generic_type": "ObjetSurFlotteur",
                 "name": "objetssurflotteur",
                 "annotations": [],
                 "type": "List<ObjetSurFlotteur>"
@@ -1844,6 +1862,7 @@
             },
             {
                 "access": "default",
+                "generic_type": "TraceContour",
                 "name": "traces",
                 "annotations": [],
                 "type": "List<TraceContour>"
@@ -2137,11 +2156,18 @@
                 "returnType": "void"
             }
         ],
+        "associations0toN": [
+            "Flotteur",
+            "Ilot",
+            "IlotInstance",
+            "ObjetSurFlotteur",
+            "TraceContour"
+        ],
+        "associations1to1": ["Settings"],
         "type": "class"
     },
     "WindSettings": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "protected",
@@ -2566,11 +2592,12 @@
                 "returnType": "void"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": ["typeCalculVent"],
         "type": "class"
     },
     "AutreObjetSurFlotteur": {
         "implements": [],
-        "associations": [],
         "variables": [],
         "extends": "ObjetSurFlotteur",
         "methods": [
@@ -2596,11 +2623,12 @@
                 "returnType": "TypeObjetSurFlotteur"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "Flotteur_Triangle": {
         "implements": ["Cloneable"],
-        "associations": [],
         "variables": [
             {
                 "access": "private",
@@ -2712,11 +2740,12 @@
                 "returnType": "double"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": [],
         "type": "class"
     },
     "Settings": {
         "implements": [],
-        "associations": [],
         "variables": [
             {
                 "access": "default",
@@ -2808,6 +2837,8 @@
                 "returnType": "String"
             }
         ],
+        "associations0toN": [],
+        "associations1to1": ["WindSettings"],
         "type": "class"
     }
 }

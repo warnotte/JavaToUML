@@ -22,12 +22,13 @@ import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.MemberValuePair;
 import com.github.javaparser.ast.expr.NormalAnnotationExpr;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.Type;
 
 public class JavaClassInspector {
 
     public static void main(String[] args) {
-        String dir = "testDatas\\set1";
+    	String dir = "testDatas\\set1";
         Set<String> excluded = new HashSet<>(List.of("PropertyChangeSupport", "ClasseBExclure", "EnumExclu"));
         String jsonOutfile = "classes.json";
 
@@ -59,14 +60,40 @@ public class JavaClassInspector {
 
     private static JSONObject extractClassesAndRelations(List<File> javaFiles, Set<String> excludedClasses) {
         JSONObject classes = new JSONObject();
+		Set<String> classNames = new HashSet<>();
+		Set<String> enumNames = new HashSet<>();
 
+		// Étape 1 : Identifier toutes les classes et enums pour les associations
+		for (File file : javaFiles) {
+			try {
+				CompilationUnit cu = StaticJavaParser.parse(file);
+				cu.findAll(ClassOrInterfaceDeclaration.class).forEach(cls -> {
+					if (!excludedClasses.contains(cls.getNameAsString())) {
+						classNames.add(cls.getNameAsString());
+					}
+				});
+				cu.findAll(EnumDeclaration.class).forEach(enumDecl -> {
+					if (!excludedClasses.contains(enumDecl.getNameAsString())) {
+						enumNames.add(enumDecl.getNameAsString());
+					}
+				});
+			} catch (IOException | ParseProblemException e) {
+				System.out.println("Erreur de parsing dans " + file.getName());
+			}
+		}
+
+		// Étape 2 : Extraction des relations et variables
         for (File file : javaFiles) {
             try {
+            	System.out.println("Analysing : "+file);
                 CompilationUnit cu = StaticJavaParser.parse(file);
                 cu.findAll(ClassOrInterfaceDeclaration.class).forEach(cls -> {
                     String className = cls.getNameAsString();
+                    
                     if (excludedClasses.contains(className)) return;
 
+                    System.out.println("Class detected : "+className);
+                    
                     JSONObject classInfo = new JSONObject();
 					classInfo.put("type", "class");
 					classInfo.put("variables", new JSONArray());
@@ -84,11 +111,16 @@ public class JavaClassInspector {
 					});
                     classInfo.put("implements", implementedTypes);
 
-                    JSONArray associations = new JSONArray();
+                    JSONArray associations1to1 = new JSONArray();
+                    JSONArray associations0toN = new JSONArray();
+                    
+                    Set<String> associations0toNavoidDupe = new HashSet<String>();
 
+                    System.out.println("\tFields : "+cls.getFields().size());
+                    
                     for (FieldDeclaration field : cls.getFields()) {
                         for (VariableDeclarator var : field.getVariables()) {
-                            JSONObject varInfo = new JSONObject();
+                        	JSONObject varInfo = new JSONObject();
                             Type varType = var.getType();
                             String typeName = varType.toString();
 
@@ -107,9 +139,41 @@ public class JavaClassInspector {
                             varInfo.put("access", accessModifier);
                             varInfo.put("annotations", annotations);
 
+                            // Vérifier si le type est une collection générique
+							if (varType instanceof ClassOrInterfaceType) {
+								ClassOrInterfaceType classType = (ClassOrInterfaceType) varType;
+								String rawType = classType.getNameAsString();
+
+								if (List.of("List", "Set", "Map", "Collection").contains(rawType)) {
+									if (classType.getTypeArguments().isPresent() && !classType.getTypeArguments().get().isEmpty()) {
+										String genericType = classType.getTypeArguments().get().get(0).toString();
+										if (!excludedClasses.contains(genericType)) {
+											varInfo.put("generic_type", genericType);
+											
+											if (classNames.contains(genericType) || enumNames.contains(genericType)) {
+												if (associations0toNavoidDupe.contains(genericType)==false)
+												{
+													// Relation 0-N
+													associations0toN.put(genericType);
+													associations0toNavoidDupe.add(genericType);
+												}
+											}
+										}
+									}
+								}
+							}
+							
+							// Relation 1-1
+							if (classNames.contains(typeName) || enumNames.contains(typeName)) {
+								associations1to1.put(typeName);
+							}
+
+                            
                             classInfo.getJSONArray("variables").put(varInfo);
                         }
                     }
+
+                    System.out.println("\tMethods : "+cls.getMethods().size());
 
                     for (MethodDeclaration method : cls.getMethods()) {
                         JSONObject methodInfo = new JSONObject();
@@ -132,16 +196,20 @@ public class JavaClassInspector {
                         classInfo.getJSONArray("methods").put(methodInfo);
                     }
 
-                    classInfo.put("associations", associations);
+                    classInfo.put("associations1to1", associations1to1);
+                    classInfo.put("associations0toN", associations0toN);
                     classes.put(className, classInfo);
                 });
                 
 
 				// Enums
 				cu.findAll(EnumDeclaration.class).forEach(enumDecl -> {
+
 					String enumName = enumDecl.getNameAsString();
+
 					if (excludedClasses.contains(enumName))
 						return; // Ignorer l'enum si exclue
+					System.out.println("\tEnum : "+enumName);
 
 					JSONObject enumInfo = new JSONObject();
 					enumInfo.put("type", "enum");

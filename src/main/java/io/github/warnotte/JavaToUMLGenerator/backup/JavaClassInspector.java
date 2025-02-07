@@ -137,7 +137,7 @@ public class JavaClassInspector {
 							varInfo.put("access", accessModifier);
                             varInfo.put("annotations", annotations);
 
-							// Vérifier si le type est une collection générique
+                         // Vérifier si le type est une collection générique
 							if (varType instanceof ClassOrInterfaceType) {
 								ClassOrInterfaceType classType = (ClassOrInterfaceType) varType;
 								String rawType = classType.getNameAsString();

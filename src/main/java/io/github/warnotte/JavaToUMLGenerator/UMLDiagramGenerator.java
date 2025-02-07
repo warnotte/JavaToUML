@@ -1,7 +1,9 @@
 package io.github.warnotte.JavaToUMLGenerator;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.nidi.graphviz.attribute.*;
+import guru.nidi.graphviz.attribute.Arrow.DirType;
 import guru.nidi.graphviz.attribute.Rank.RankDir;
 import guru.nidi.graphviz.engine.*;
 import guru.nidi.graphviz.model.*;
@@ -22,6 +24,8 @@ public class UMLDiagramGenerator {
 
 	static void process(String jsonFilePath, String outputImagePath) {
 
+		boolean writeMethods = false;
+		
 		try {
 			// Charger le JSON
 			ObjectMapper objectMapper = new ObjectMapper();
@@ -37,37 +41,46 @@ public class UMLDiagramGenerator {
 				String type = classNode.get("type").asText();
 
 				// Construire le label avec le style "record"
-				StringBuilder label = new StringBuilder("{" + sanitizeString(className) + "| ");
+				StringBuilder label = new StringBuilder("{" + sanitizeString(className));
 
 				// Ajouter les variables des classes
-				if (classNode.has("variables")) {
-					for (JsonNode variable : classNode.get("variables")) {
-						String varName = sanitizeString(variable.get("name").asText());
-						String varType = sanitizeString(variable.get("type").asText());
-						label.append(varType).append(": ").append(varName).append("\\l"); // \l pour aligner à gauche
+				if (true) {
+					if (classNode.has("variables")) {
+						if (classNode.get("variables").size() != 0) {
+							label.append("|");
+							for (JsonNode variable : classNode.get("variables")) {
+								String varName = sanitizeString(variable.get("name").asText());
+								String varType = sanitizeString(variable.get("type").asText());
+								label.append(varType).append(": ").append(varName).append("\\l"); // \l pour aligner à gauche
+							}
+						}
 					}
 				}
-				
-				// TODO : Test if some methods exists.
-				if (true)
-				{
-					label.append("|");
-	                if (classNode.has("methods")) {
-	                    for (JsonNode method : classNode.get("methods")) {
-	                        if (method.get("access").asText().equals("public")) {
-	                            String methodName = sanitizeString(method.get("name").asText());
-	                            String returnType = sanitizeString(method.get("returnType").asText());
-	                            label.append(returnType).append(" ").append(methodName).append("()\\l");
-	                        }
-	                    }
-	                }
+
+				if (writeMethods) {
+					if (classNode.has("methods")) {
+						if (classNode.get("methods").size() != 0) {
+							label.append("|");
+							for (JsonNode method : classNode.get("methods")) {
+								if (method.get("access").asText().equals("public")) {
+									String methodName = sanitizeString(method.get("name").asText());
+									String returnType = sanitizeString(method.get("returnType").asText());
+									label.append(returnType).append(" ").append(methodName).append("()\\l");
+								}
+							}
+						}
+					}
 				}
 
 				// Ajouter les valeurs des enums
-				if (type.equals("enum") && classNode.has("values")) {
-					// label.append("| ");
-					for (JsonNode enumValue : classNode.get("values")) {
-						label.append(sanitizeString(enumValue.asText())).append("\\l");
+				if (true) {
+					if (type.equals("enum") && classNode.has("values")) {
+						if (classNode.get("values").size() != 0) {
+							label.append("|");
+							for (JsonNode enumValue : classNode.get("values")) {
+								label.append(sanitizeString(enumValue.asText())).append("\\l");
+							}
+						}
 					}
 				}
 
@@ -98,7 +111,7 @@ public class UMLDiagramGenerator {
 				}
 
 				// Variables et associations
-				if (classNode.has("variables")) {
+				/*if (classNode.has("variables")) {
 					for (JsonNode variable : classNode.get("variables")) {
 						String varType = sanitizeString(variable.get("type").asText());
 						String genericType = variable.has("generic_type") ? sanitizeString(variable.get("generic_type").asText()) : null;
@@ -110,8 +123,24 @@ public class UMLDiagramGenerator {
 							g = g.with(classNodeGraph.link(to(node(genericType)).with(Arrow.NORMAL, Style.SOLID)));
 						}
 					}
+				}*/
+				
+				if (classNode.has("associations1to1")) {
+					for (JsonNode implementedInterface : classNode.get("associations1to1")) {
+						String interfaceName = sanitizeString(implementedInterface.asText());
+						g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.NONE, Style.SOLID)));
+						
+					}
+				}
+				if (classNode.has("associations0toN")) {
+					for (JsonNode implementedInterface : classNode.get("associations0toN")) {
+						String interfaceName = sanitizeString(implementedInterface.asText());
+						g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID);
+						//g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID, Style.tapered(1, DirType.BOTH))));
+					}
 				}
 				
+
 				g = g.with(classNodeGraph);
 			}
 

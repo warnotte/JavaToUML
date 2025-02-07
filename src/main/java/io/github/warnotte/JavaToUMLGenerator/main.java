@@ -13,7 +13,7 @@ public class main {
 
 	public static void main(String[] args) throws IOException {
 		
-		String dir = "testDatas\\set2";
+		String dir = "testDatas\\set1";
 		Set<String> excluded = new HashSet<>(List.of("PropertyChangeSupport", "ClasseBExclure", "EnumExclu"));
 		String jsonFilePath = "classes.json";
 		
