@@ -135,7 +135,7 @@ public class UMLDiagramGenerator {
 				if (classNode.has("associations0toN")) {
 					for (JsonNode implementedInterface : classNode.get("associations0toN")) {
 						String interfaceName = sanitizeString(implementedInterface.asText());
-						g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID);
+						g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID)));
 						//g = g.with(classNodeGraph.link(to(node(interfaceName)).with(Arrow.DIAMOND, Style.SOLID, Style.tapered(1, DirType.BOTH))));
 					}
 				}
