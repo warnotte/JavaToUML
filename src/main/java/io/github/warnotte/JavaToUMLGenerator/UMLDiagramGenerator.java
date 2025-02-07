@@ -163,6 +163,10 @@ public class UMLDiagramGenerator {
 
 			// Générer l'image du diagramme UML
 			Graphviz.fromGraph(g).render(Format.PNG).toFile(new File(outputImagePath));
+			
+			Graphviz.fromGraph(g).render(Format.SVG).toFile(new File(outputImagePath+".svg"));
+
+			
 			System.out.println("Diagramme UML généré : " + outputImagePath);
 
 		} catch (IOException e) {
