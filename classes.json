@@ -1,1787 +1,2813 @@
 {
-    "ShipHistoryStats": {
+    "OLD_WindSettings": {
         "implements": [],
-        "associations": [
-            "Type",
-            "Direction"
-        ],
+        "associations": [],
         "variables": [
             {
-                "name": "shipId",
-                "type": "int"
+                "access": "default",
+                "name": "typeCalcul",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "typeCalculVent"
             },
             {
-                "name": "shipTypeId",
-                "type": "int"
-            },
-            {
-                "name": "chkPointType",
-                "type": "Type"
-            },
-            {
-                "name": "chkPointId",
-                "type": "int"
-            },
-            {
-                "name": "shipDirection",
-                "type": "Direction"
-            },
-            {
-                "name": "arrivalTime",
+                "access": "default",
+                "name": "Vb_init",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             },
             {
-                "name": "departTime",
+                "access": "default",
+                "name": "Cdir",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             },
             {
-                "name": "accessWaitingTime",
+                "access": "default",
+                "name": "Cseason",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             },
             {
-                "name": "safetyWaitingTime",
+                "access": "default",
+                "name": "angle",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             },
             {
-                "name": "busynessWaitingTime",
+                "access": "default",
+                "name": "Cr",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             },
             {
-                "name": "shutdownWaitingTime",
+                "access": "default",
+                "name": "Co",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Kr",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Ki",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "P",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             }
         ],
         "extends": null,
+        "methods": [
+            {
+                "access": "public",
+                "name": "getPcs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PropertyChangeSupport"
+            },
+            {
+                "access": "public",
+                "name": "main",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVb",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getVm",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getAv",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getIv",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getQp",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getTypeCalcul",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "5",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE",
+                        "gui_type": "gui_type.COMBO"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "typeCalculVent"
+            },
+            {
+                "access": "public",
+                "name": "setTypeCalcul",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVb_init",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setVb_init",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getCdir",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCdir",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getCseason",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "30",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCseason",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getCr",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "40",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCr",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getCo",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "50",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCo",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getKr",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "60",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setKr",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getKi",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "70",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setKi",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getP",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "80",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setP",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getAngle",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "90",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setAngle",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            }
+        ],
         "type": "class"
     },
-    "LockWorkload": {
+    "Vertex2D": {
         "implements": [],
-        "associations": [
-            "Time",
-            "OpeningDirection"
-        ],
+        "associations": [],
         "variables": [
             {
-                "name": "time",
-                "type": "Time"
+                "access": "public",
+                "name": "x",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
             },
             {
-                "name": "openingDirection",
-                "type": "OpeningDirection"
+                "access": "public",
+                "name": "y",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            }
+        ],
+        "extends": null,
+        "methods": [
+            {
+                "access": "public",
+                "name": "getX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
             },
             {
-                "name": "occupancyRate",
+                "access": "public",
+                "name": "setX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            }
+        ],
+        "type": "class"
+    },
+    "FEMNode": {
+        "implements": [],
+        "associations": [],
+        "variables": [{
+            "access": "default",
+            "name": "id",
+            "annotations": [],
+            "type": "int"
+        }],
+        "extends": "Vertex2D",
+        "methods": [
+            {
+                "access": "public",
+                "name": "getId",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "setId",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "toString",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "String"
+            }
+        ],
+        "type": "class"
+    },
+    "Flotteur_Circulaire": {
+        "implements": ["Cloneable"],
+        "associations": [],
+        "variables": [
+            {
+                "access": "private",
+                "name": "rayon",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "private",
+                "name": "largeur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            }
+        ],
+        "extends": "Flotteur",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur_Circulaire"
+            },
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTypeFlotteur",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "TypeFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "getRayon",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "200",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setRayon",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getLargeur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "210",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLargeur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVolume",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getLongueur",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "double"
+            }
+        ],
+        "type": "class"
+    },
+    "TraceContour": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "access": "default",
+                "name": "minX",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "float"
             },
             {
-                "generic_type": "Ship",
-                "name": "ships",
-                "type": "List<Ship>"
+                "access": "default",
+                "name": "minY",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            },
+            {
+                "access": "default",
+                "name": "maxX",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            },
+            {
+                "access": "default",
+                "name": "maxY",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            },
+            {
+                "access": "default",
+                "name": "listPoints",
+                "annotations": [],
+                "type": "List<Vertex2D>"
+            },
+            {
+                "access": "transient",
+                "name": "listPointsAtZero",
+                "annotations": [],
+                "type": "List<Vertex2D>"
+            },
+            {
+                "access": "transient",
+                "name": "shp_trace",
+                "annotations": [],
+                "type": "Path2D"
             }
         ],
         "extends": null,
+        "methods": [
+            {
+                "access": "private",
+                "name": "computeBounds",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getListPoints",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<Vertex2D>"
+            },
+            {
+                "access": "public",
+                "name": "setListPoints",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getListPointsAtZero",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<Vertex2D>"
+            },
+            {
+                "access": "private",
+                "name": "computeListPointAtZero",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getMinX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "getMinY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "getMaxX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "getMaxY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "getShp_trace",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Path2D"
+            },
+            {
+                "access": "public",
+                "name": "toString",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "String"
+            }
+        ],
         "type": "class"
     },
-    "ProgressChangedObserver": {
-        "implements": ["Observer"],
+    "TypeFlotteur": {
+        "variables": [],
+        "methods": [],
+        "values": [
+            "PRISMATIQUE",
+            "TRIANGLE",
+            "CIRCULAIRE"
+        ],
+        "type": "enum"
+    },
+    "ModelItem": {
+        "implements": [
+            "Identifiable",
+            "Cloneable"
+        ],
         "associations": [],
         "variables": [{
-            "name": "progress",
+            "access": "default",
+            "name": "id",
+            "annotations": [{"name": "XStreamAsAttribute"}],
             "type": "int"
         }],
         "extends": null,
-        "type": "class"
-    },
-    "ShutdownManager": {
-        "implements": [],
-        "associations": ["Project"],
-        "variables": [
+        "methods": [
             {
-                "name": "project",
-                "type": "Project"
+                "access": "public",
+                "name": "getPcs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PropertyChangeSupport"
             },
             {
-                "name": "MAX_ORD_ERLANG",
-                "type": "int"
+                "access": "public",
+                "name": "getId",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "int"
             },
             {
-                "name": "T_SIGMA_SUR_M",
-                "type": "double[]"
+                "access": "public",
+                "name": "setId",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "void"
             },
             {
-                "name": "ERL_COEFF_MIN",
-                "type": "float"
-            },
-            {
-                "name": "ERL_COEFF_MAX",
-                "type": "float"
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Object"
             }
         ],
-        "extends": null,
         "type": "class"
     },
-    "ShipTypeLockTime": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "Time",
-            "Time",
-            "Time"
-        ],
-        "variables": [
-            {
-                "name": "lockId",
-                "type": "int"
-            },
-            {
-                "name": "shipTypeId",
-                "type": "int"
-            },
-            {
-                "name": "firstShipEnteringTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipsEnteringTime",
-                "type": "Time"
-            },
-            {
-                "name": "firstShipExitingTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipsExitingTime",
-                "type": "Time"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "TimeSlot": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "Time"
-        ],
-        "variables": [
-            {
-                "name": "start",
-                "type": "Time"
-            },
-            {
-                "name": "end",
-                "type": "Time"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Frandom": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "name": "output",
-                "type": "BufferedReader"
-            },
-            {
-                "name": "error",
-                "type": "BufferedReader"
-            },
-            {
-                "name": "input",
-                "type": "PrintWriter"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "Postproc": {
-        "implements": [],
-        "associations": ["Project"],
-        "variables": [
-            {
-                "name": "project",
-                "type": "Project"
-            },
-            {
-                "name": "simTimeFraction",
-                "type": "float"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "ErlangLawShip": {
-        "implements": [],
-        "associations": [
-            "ErlangLawOrder",
-            "TimeSlot"
-        ],
-        "variables": [
-            {
-                "name": "lawOrder",
-                "type": "ErlangLawOrder"
-            },
-            {
-                "name": "numberOfShips",
-                "type": "int"
-            },
-            {
-                "name": "timeSlot",
-                "type": "TimeSlot"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Random": {
-        "implements": [],
-        "associations": [
-            "RunMode",
-            "Frandom"
-        ],
-        "variables": [
-            {
-                "name": "runMode",
-                "type": "RunMode"
-            },
-            {
-                "name": "jrandom",
-                "type": "java.util.Random"
-            },
-            {
-                "name": "frandom",
-                "type": "Frandom"
-            },
-            {
-                "name": "currentFloat",
-                "type": "float"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "WaitCaracteristic": {
-        "implements": [],
-        "associations": ["WaitingTimesStats"],
-        "variables": [
-            {
-                "name": "waitingtimestats",
-                "type": "WaitingTimesStats"
-            },
-            {
-                "name": "shipNumber",
-                "type": "int"
-            },
-            {
-                "name": "shipNumberWaitingLessThan3min",
-                "type": "int"
-            },
-            {
-                "name": "shipNumberWaiting0min",
-                "type": "int"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "ShipGenerationTime": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "name": "days",
-                "type": "int"
-            },
-            {
-                "name": "hours",
-                "type": "int"
-            },
-            {
-                "name": "minutes",
-                "type": "int"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "TimeParser": {
+    "Ilot": {
         "implements": [],
         "associations": [],
         "variables": [],
-        "extends": null,
+        "extends": "MapModelItem",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Ilot"
+            },
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "toString",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "String"
+            }
+        ],
         "type": "class"
     },
-    "Route": {
-        "implements": [],
+    "Flotteur_Prismatique": {
+        "implements": ["Cloneable"],
         "associations": [],
         "variables": [
             {
-                "name": "id",
-                "type": "int"
-            },
-            {
-                "generic_type": "NetworkItem",
-                "name": "elements",
-                "type": "List<NetworkItem>"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "ShipEventType": {
-        "variables": [],
-        "values": [
-            "ARRIVAL",
-            "DEPARTURRE"
-        ],
-        "type": "enum"
-    },
-    "TrafficRule": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "name": "waterwayId",
-                "type": "int"
-            },
-            {
-                "name": "ship1Id",
-                "type": "int"
-            },
-            {
-                "name": "ship2Id",
-                "type": "int"
-            },
-            {
-                "name": "isCrossingAllowed",
-                "type": "boolean"
-            },
-            {
-                "name": "isOvertakingAllowed",
-                "type": "boolean"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "ErlangLawOrder": {
-        "variables": [],
-        "values": [
-            "K1",
-            "K2",
-            "K3",
-            "K4",
-            "K5",
-            "K6",
-            "K7",
-            "K8",
-            "K9",
-            "K10"
-        ],
-        "type": "enum"
-    },
-    "NetworkLineItem": {
-        "implements": [],
-        "associations": ["Shutdowns"],
-        "variables": [
-            {
-                "name": "length",
-                "type": "float"
-            },
-            {
-                "name": "width",
-                "type": "float"
-            },
-            {
-                "name": "depth",
-                "type": "float"
-            },
-            {
-                "name": "upstreamStationId",
-                "type": "int"
-            },
-            {
-                "name": "downstreamStationId",
-                "type": "int"
-            },
-            {
-                "name": "shutdowns",
-                "type": "Shutdowns"
-            },
-            {
-                "generic_type": "Shutdown",
-                "name": "shutdownHistory",
-                "type": "List<Shutdown>"
-            },
-            {
-                "generic_type": "TimeSlot",
-                "name": "timeSlots",
-                "type": "List<TimeSlot>"
-            }
-        ],
-        "extends": "NetworkItem",
-        "type": "class"
-    },
-    "DataChangedObserver": {
-        "implements": ["Observer"],
-        "associations": [],
-        "variables": [{
-            "name": "isProjectSaved",
-            "type": "boolean"
-        }],
-        "extends": null,
-        "type": "class"
-    },
-    "ShipEvent": {
-        "implements": [],
-        "associations": [
-            "Ship",
-            "Time",
-            "NetworkItem",
-            "ShipEventType"
-        ],
-        "variables": [
-            {
-                "name": "ship",
-                "type": "Ship"
-            },
-            {
-                "name": "time",
-                "type": "Time"
-            },
-            {
-                "name": "networkItem",
-                "type": "NetworkItem"
-            },
-            {
-                "name": "shipEventType",
-                "type": "ShipEventType"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "DeterministicShutdown": {
-        "implements": [],
-        "associations": ["Time"],
-        "variables": [{
-            "name": "startTime",
-            "type": "Time"
-        }],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Priority": {
-        "variables": [],
-        "values": [
-            "LOW",
-            "NORMAL",
-            "HIGH"
-        ],
-        "type": "enum"
-    },
-    "Color": {
-        "implements": [],
-        "associations": [],
-        "variables": [],
-        "extends": "Color",
-        "type": "class"
-    },
-    "OpeningDirection": {
-        "variables": [],
-        "values": [
-            "INDETERMINED",
-            "UPSTREAM",
-            "DOWNSTREAM"
-        ],
-        "type": "enum"
-    },
-    "RoutePlanner": {
-        "implements": [],
-        "associations": [
-            "WaterwayNetwork",
-            "Ship"
-        ],
-        "variables": [
-            {
-                "name": "waterwayNetwork",
-                "type": "WaterwayNetwork"
-            },
-            {
-                "name": "shipTypeSchedule",
-                "type": "Ship"
-            },
-            {
-                "generic_type": "Route",
-                "name": "routes",
-                "type": "List<Route>"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "LoadingCondition": {
-        "variables": [],
-        "values": [
-            "LOADED",
-            "LIGHT"
-        ],
-        "type": "enum"
-    },
-    "ShipGenerationLawType": {
-        "variables": [],
-        "values": [
-            "RANDOM",
-            "DETERMINISTIC",
-            "DAY_BY_DAY"
-        ],
-        "type": "enum"
-    },
-    "Station": {
-        "implements": [],
-        "associations": ["Vertex"],
-        "variables": [
-            {
-                "name": "vertex",
-                "type": "Vertex"
-            },
-            {
-                "generic_type": "NetworkLineItem",
-                "name": "branches",
-                "type": "List<NetworkLineItem>"
-            },
-            {
-                "generic_type": "StationWorkload",
-                "name": "workloads",
-                "type": "List<StationWorkload>"
-            }
-        ],
-        "extends": "NetworkNodeItem",
-        "type": "class"
-    },
-    "Project": {
-        "implements": [],
-        "associations": [
-            "GeneralData",
-            "WaterwayNetwork",
-            "Solver"
-        ],
-        "variables": [
-            {
-                "name": "name",
-                "type": "String"
-            },
-            {
-                "name": "filePath",
-                "type": "Path"
-            },
-            {
-                "name": "generalData",
-                "type": "GeneralData"
-            },
-            {
-                "name": "waterwayNetwork",
-                "type": "WaterwayNetwork"
-            },
-            {
-                "name": "solver",
-                "type": "Solver"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "TransitTime": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "Time",
-            "Time",
-            "Time",
-            "Time"
-        ],
-        "variables": [
-            {
-                "name": "transitTime",
-                "type": "Time"
-            },
-            {
-                "name": "accessWaitingTime",
-                "type": "Time"
-            },
-            {
-                "name": "safetyWaitingTime",
-                "type": "Time"
-            },
-            {
-                "name": "busynessWaitingTime",
-                "type": "Time"
-            },
-            {
-                "name": "shutdownWaitingTime",
-                "type": "Time"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "Shutdown": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "Time",
-            "NetworkLineItem"
-        ],
-        "variables": [
-            {
-                "name": "id",
-                "type": "int"
-            },
-            {
-                "name": "startTime",
-                "type": "Time"
-            },
-            {
-                "name": "endTime",
-                "type": "Time"
-            },
-            {
-                "name": "shutItem",
-                "type": "NetworkLineItem"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "RunMode": {
-        "variables": [],
-        "values": [
-            "VALIDATION",
-            "RELEASE"
-        ],
-        "type": "enum"
-    },
-    "Shutdowns": {
-        "implements": [],
-        "associations": [
-            "ShutdownGenerationLawType",
-            "Time",
-            "RandomShutdown",
-            "Shutdown"
-        ],
-        "variables": [
-            {
-                "name": "shutdownGenerationLawType",
-                "type": "ShutdownGenerationLawType"
-            },
-            {
-                "generic_type": "DeterministicShutdown",
-                "name": "deterministicShutdowns",
-                "type": "List<DeterministicShutdown>"
-            },
-            {
-                "name": "meanDuration",
-                "type": "Time"
-            },
-            {
-                "name": "numberOfOccurences",
-                "type": "int"
-            },
-            {
-                "name": "randomShutdowns",
-                "type": "RandomShutdown"
-            },
-            {
-                "generic_type": "Shutdown",
-                "name": "shutdowns",
-                "type": "List<Shutdown>"
-            },
-            {
-                "name": "nextShutdown",
-                "type": "Shutdown"
-            },
-            {
-                "name": "deterministicShutdownsNeeded",
-                "type": "boolean"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Map": {
-        "implements": [],
-        "associations": ["Vertex"],
-        "variables": [
-            {
-                "name": "path",
-                "type": "Path"
-            },
-            {
-                "name": "scale",
-                "type": "float"
-            },
-            {
-                "name": "offset",
-                "type": "Vertex"
-            },
-            {
-                "name": "rotation",
-                "type": "float"
-            },
-            {
-                "name": "visible",
-                "type": "boolean"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "ShipType": {
-        "implements": [],
-        "associations": [
-            "Priority",
-            "LoadingCondition",
-            "Color"
-        ],
-        "variables": [
-            {
-                "name": "priority",
-                "type": "Priority"
-            },
-            {
-                "name": "length",
-                "type": "float"
-            },
-            {
-                "name": "beam",
-                "type": "float"
-            },
-            {
-                "name": "draught",
-                "type": "float"
-            },
-            {
-                "name": "loadingCondition",
-                "type": "LoadingCondition"
-            },
-            {
-                "generic_type": "TimeSlot",
-                "name": "timeSlots",
-                "type": "List<TimeSlot>"
-            },
-            {
-                "name": "color",
-                "type": "Color"
-            }
-        ],
-        "extends": "NetworkItem",
-        "type": "class"
-    },
-    "TravelTimeStats": {
-        "implements": [],
-        "associations": [
-            "ShipType",
-            "Time",
-            "Time",
-            "Time"
-        ],
-        "variables": [
-            {
-                "name": "shipType",
-                "type": "ShipType"
-            },
-            {
-                "name": "minimum",
-                "type": "Time"
-            },
-            {
-                "name": "maximum",
-                "type": "Time"
-            },
-            {
-                "name": "average",
-                "type": "Time"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "RandomShutdown": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "ErlangLawOrder",
-            "ErlangLawOrder",
-            "Time",
-            "Time",
-            "Time",
-            "Time",
-            "Time"
-        ],
-        "variables": [
-            {
-                "name": "meanSpread",
-                "type": "Time"
-            },
-            {
-                "name": "meanSpreadLawOrder",
-                "type": "ErlangLawOrder"
-            },
-            {
-                "name": "durationLawOrder",
-                "type": "ErlangLawOrder"
-            },
-            {
-                "name": "SpreadSum",
+                "access": "private",
+                "name": "longueur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "double"
             },
             {
-                "name": "spreadMeanSpreadSum",
-                "type": "Time"
+                "access": "private",
+                "name": "largeur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
             },
             {
-                "name": "spreadMeanDurationSum",
-                "type": "Time"
-            },
-            {
-                "name": "durationSum",
-                "type": "Time"
-            },
-            {
-                "name": "adjustingMeanSpread",
-                "type": "Time"
-            },
-            {
-                "name": "adjustingMeanDuration",
-                "type": "Time"
-            },
-            {
-                "name": "seed",
-                "type": "long"
+                "access": "private",
+                "name": "hauteur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
             }
         ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Vertex": {
-        "implements": [],
-        "associations": [],
-        "variables": [
+        "extends": "Flotteur",
+        "methods": [
             {
-                "name": "x",
-                "type": "float"
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur_Prismatique"
             },
             {
-                "name": "y",
-                "type": "float"
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTypeFlotteur",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "TypeFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "getLongueur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "200",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLongueur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getLargeur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "210",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLargeur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getHauteur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "220",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setHauteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVolume",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
             }
         ],
-        "extends": "Observable",
         "type": "class"
     },
-    "Solver": {
-        "implements": [],
-        "associations": [
-            "Events",
-            "Project",
-            "ShutdownManager",
-            "ShipGenerator",
-            "RunMode"
+    "typeCalculVent": {
+        "variables": [],
+        "methods": [],
+        "values": [
+            "EuroCode",
+            "Abaques",
+            "ASCE7"
         ],
-        "variables": [
-            {
-                "name": "events",
-                "type": "Events"
-            },
-            {
-                "name": "h_deb_stat",
-                "type": "int"
-            },
-            {
-                "name": "h_fin_stat",
-                "type": "int"
-            },
-            {
-                "name": "trajet_nb",
-                "type": "int"
-            },
-            {
-                "name": "nb_bat_arriv",
-                "type": "int"
-            },
-            {
-                "name": "tab_nb_bat",
-                "type": "int"
-            },
-            {
-                "name": "h_fin_sim",
-                "type": "double"
-            },
-            {
-                "name": "h_next_arriv",
-                "type": "double"
-            },
-            {
-                "name": "num_next_arriv",
-                "type": "int"
-            },
-            {
-                "name": "h_out_gare",
-                "type": "double"
-            },
-            {
-                "name": "h_out_chenal",
-                "type": "double"
-            },
-            {
-                "name": "h_out_ecl",
-                "type": "double"
-            },
-            {
-                "name": "project",
-                "type": "Project"
-            },
-            {
-                "name": "nLoops",
-                "type": "int"
-            },
-            {
-                "name": "myCounter",
-                "type": "int"
-            },
-            {
-                "name": "shutdownManager",
-                "type": "ShutdownManager"
-            },
-            {
-                "name": "shipGenerator",
-                "type": "ShipGenerator"
-            },
-            {
-                "name": "runMode",
-                "type": "RunMode"
-            },
-            {
-                "name": "progress",
-                "type": "int"
-            },
-            {
-                "name": "debug",
-                "type": "WriteData"
-            },
-            {
-                "name": "isCanceled",
-                "type": "boolean"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Time": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "name": "minutes",
-                "type": "double"
-            },
-            {
-                "name": "PRECISION",
-                "type": "int"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "CheckModel": {
-        "implements": [],
-        "associations": ["Project"],
-        "variables": [{
-            "name": "project",
-            "type": "Project"
-        }],
-        "extends": null,
-        "type": "class"
+        "type": "enum"
     },
     "Direction": {
         "variables": [],
+        "methods": [],
         "values": [
-            "UPSTREAM",
-            "DOWNSTREAM",
-            "INDETERMINED"
+            "AVANT",
+            "ARRIERE"
         ],
         "type": "enum"
     },
-    "ErlangValue": {
-        "implements": [],
-        "associations": ["Random"],
-        "variables": [
-            {
-                "name": "MAX_ORD_ERLANG",
-                "type": "int"
-            },
-            {
-                "name": "T_SIGMA_SUR_M",
-                "type": "double[]"
-            },
-            {
-                "name": "ERL_COEFF_MIN",
-                "type": "float"
-            },
-            {
-                "name": "ERL_COEFF_MAX",
-                "type": "float"
-            },
-            {
-                "name": "random",
-                "type": "Random"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "Events": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "Time",
-            "Time",
-            "Time",
-            "Time",
-            "Time",
-            "Time",
-            "Ship",
-            "Ship",
-            "Ship",
-            "Ship",
-            "Time",
-            "Time",
-            "Time"
-        ],
-        "variables": [
-            {
-                "name": "simulationEndTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextWaterwayShutdownEndTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextLockShutdownEndTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipArrivalTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipDepartureFromStationTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipDepartureFromLockTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipDepartureFromWaterwayTime",
-                "type": "Time"
-            },
-            {
-                "name": "nextShipArrival",
-                "type": "Ship"
-            },
-            {
-                "name": "nextShipDepartureFromStation",
-                "type": "Ship"
-            },
-            {
-                "name": "nextShipDepartureFromLock",
-                "type": "Ship"
-            },
-            {
-                "name": "nextShipDepartureFromWaterway",
-                "type": "Ship"
-            },
-            {
-                "name": "statsStartTime",
-                "type": "Time"
-            },
-            {
-                "name": "statsStopTime",
-                "type": "Time"
-            },
-            {
-                "name": "currentTime",
-                "type": "Time"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "WaterConsumptionStats": {
-        "implements": [],
-        "associations": ["Lock"],
-        "variables": [
-            {
-                "name": "lock",
-                "type": "Lock"
-            },
-            {
-                "name": "numberOfNonEmptyLockings",
-                "type": "int"
-            },
-            {
-                "name": "numberOfEmptyLockings",
-                "type": "int"
-            },
-            {
-                "name": "totalNumberOfLockings",
-                "type": "int"
-            },
-            {
-                "name": "nonEmptyLockingWaterConsumption",
-                "type": "float"
-            },
-            {
-                "name": "emptyLockingWaterConsumption",
-                "type": "float"
-            },
-            {
-                "name": "totalWaterConsumption",
-                "type": "float"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "GeneralData": {
-        "implements": [],
-        "associations": [
-            "Random",
-            "Map"
-        ],
-        "variables": [
-            {
-                "name": "seed",
-                "type": "int"
-            },
-            {
-                "name": "random",
-                "type": "Random"
-            },
-            {
-                "name": "map",
-                "type": "Map"
-            },
-            {
-                "name": "numberOfSimulationDays",
-                "type": "int"
-            },
-            {
-                "name": "numberOfPassages",
-                "type": "int"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "ShutdownGenerationLawType": {
-        "variables": [],
-        "values": [
-            "RANDOM",
-            "DETERMINISTIC"
-        ],
-        "type": "enum"
-    },
-    "LockingType": {
-        "variables": [],
-        "values": [
-            "INDETERMINED",
-            "NON_EMPTY",
-            "EMPTY"
-        ],
-        "type": "enum"
-    },
-    "DayByDayLaw": {
-        "implements": [],
-        "associations": ["Time"],
-        "variables": [{
-            "name": "time",
-            "type": "Time"
-        }],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "ShipStats": {
-        "implements": [],
-        "associations": ["ShipType"],
-        "variables": [
-            {
-                "name": "shipType",
-                "type": "ShipType"
-            },
-            {
-                "name": "generatedNumber",
-                "type": "int"
-            },
-            {
-                "name": "generatedPercent",
-                "type": "float"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "Locking": {
-        "implements": [],
-        "associations": [
-            "LockingType",
-            "Time",
-            "OpeningDirection"
-        ],
-        "variables": [
-            {
-                "name": "lockingType",
-                "type": "LockingType"
-            },
-            {
-                "name": "time",
-                "type": "Time"
-            },
-            {
-                "name": "openingDirection",
-                "type": "OpeningDirection"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "ShipTypeSpeed": {
+    "MapModelItem": {
         "implements": [],
         "associations": [],
         "variables": [
             {
-                "name": "shipId",
-                "type": "int"
+                "access": "protected",
+                "name": "logger",
+                "annotations": [],
+                "type": "Logger"
             },
             {
-                "name": "waterwayId",
-                "type": "int"
-            },
-            {
-                "name": "upstreamSpeed",
-                "type": "double"
-            },
-            {
-                "name": "downstreamSpeed",
-                "type": "double"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Waterway": {
-        "implements": [],
-        "associations": [],
-        "variables": [{
-            "name": "speedLimit",
-            "type": "float"
-        }],
-        "extends": "NetworkLineItem",
-        "type": "class"
-    },
-    "DeterministicLaw": {
-        "implements": [],
-        "associations": ["ShipGenerationTime"],
-        "variables": [{
-            "name": "shipGenerationTime",
-            "type": "ShipGenerationTime"
-        }],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "TimeLengthStats": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "name": "arrTimes",
-                "type": "double"
-            },
-            {
-                "name": "depTimes",
-                "type": "double"
-            },
-            {
-                "name": "busTimes",
-                "type": "double"
-            },
-            {
-                "name": "shipId",
-                "type": "int"
-            },
-            {
-                "name": "shipType",
-                "type": "int"
-            },
-            {
-                "name": "shipLength",
-                "type": "float"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "StationWorkload": {
-        "implements": [],
-        "associations": ["Time"],
-        "variables": [
-            {
-                "name": "time",
-                "type": "Time"
-            },
-            {
-                "name": "waitingLineLength",
-                "type": "float"
-            },
-            {
-                "generic_type": "Ship",
-                "name": "ships",
-                "type": "List<Ship>"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "Lock": {
-        "implements": [],
-        "associations": [
-            "Time",
-            "Time",
-            "OpeningDirection",
-            "Time",
-            "SpaceAllocation"
-        ],
-        "variables": [
-            {
-                "name": "fallHeight",
-                "type": "float"
-            },
-            {
-                "name": "fillingTime",
-                "type": "Time"
-            },
-            {
-                "name": "drainingTime",
-                "type": "Time"
-            },
-            {
-                "name": "openingDirection",
-                "type": "OpeningDirection"
-            },
-            {
-                "name": "lastFillingOrDrainingHour",
-                "type": "Time"
-            },
-            {
-                "name": "newLocking",
-                "type": "boolean"
-            },
-            {
-                "name": "moduleLength",
-                "type": "float"
-            },
-            {
-                "name": "spaceAllocation",
-                "type": "SpaceAllocation"
-            },
-            {
-                "generic_type": "Locking",
-                "name": "lockings",
-                "type": "List<Locking>"
-            },
-            {
-                "generic_type": "LockWorkload",
-                "name": "workloads",
-                "type": "List<LockWorkload>"
-            }
-        ],
-        "extends": "NetworkLineItem",
-        "type": "class"
-    },
-    "NetworkNodeItem": {
-        "implements": [],
-        "associations": [],
-        "variables": [],
-        "extends": "NetworkItem",
-        "type": "class"
-    },
-    "Checkpoint": {
-        "implements": [],
-        "associations": [
-            "NetworkItem",
-            "Time",
-            "Time",
-            "TransitTime",
-            "Direction"
-        ],
-        "variables": [
-            {
-                "name": "networkItem",
-                "type": "NetworkItem"
-            },
-            {
-                "name": "arrivalTime",
-                "type": "Time"
-            },
-            {
-                "name": "departureTime",
-                "type": "Time"
-            },
-            {
-                "name": "transitTime",
-                "type": "TransitTime"
-            },
-            {
-                "name": "shipDirection",
-                "type": "Direction"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "Type": {
-        "variables": [],
-        "values": [
-            "STATION",
-            "LOCK",
-            "WATERWAY"
-        ],
-        "type": "enum"
-    },
-    "SpaceAllocation": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "generic_type": "Integer",
-                "name": "leftSideShipId",
-                "type": "List<Integer>"
-            },
-            {
-                "generic_type": "Integer",
-                "name": "rightSideShipId",
-                "type": "List<Integer>"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "DataChangedObserverNouveau": {
-        "implements": ["PropertyChangeListener"],
-        "associations": [],
-        "variables": [
-            {
-                "name": "manager",
-                "type": "Manager"
-            },
-            {
-                "name": "isProjectSaved",
-                "type": "boolean"
-            },
-            {
-                "name": "isSolverRunning",
-                "type": "boolean"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "Results": {
-        "implements": [],
-        "associations": [],
-        "variables": [
-            {
-                "generic_type": "ShipStats",
-                "name": "shipStats",
-                "type": "List<ShipStats>"
-            },
-            {
-                "generic_type": "TravelTimeStats",
-                "name": "travelTimeStats",
-                "type": "List<TravelTimeStats>"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "ShipGenerator": {
-        "implements": [],
-        "associations": [
-            "Project",
-            "Random"
-        ],
-        "variables": [
-            {
-                "name": "TAG",
-                "type": "String"
-            },
-            {
-                "name": "project",
-                "type": "Project"
-            },
-            {
-                "generic_type": "Ship",
-                "name": "ships",
-                "type": "List<Ship>"
-            },
-            {
-                "name": "nextShipIndex",
-                "type": "int"
-            },
-            {
-                "name": "MAX_ORD_ERLANG",
-                "type": "int"
-            },
-            {
-                "name": "T_SIGMA_SUR_M",
-                "type": "double[]"
-            },
-            {
-                "name": "ERL_COEFF_MIN",
-                "type": "float"
-            },
-            {
-                "name": "ERL_COEFF_MAX",
-                "type": "float"
-            },
-            {
-                "name": "random",
-                "type": "Random"
-            }
-        ],
-        "extends": null,
-        "type": "class"
-    },
-    "WaterwayNetwork": {
-        "implements": ["Observer"],
-        "associations": [
-            "Shutdown",
-            "Shutdown"
-        ],
-        "variables": [
-            {
-                "generic_type": "Station",
-                "name": "stations",
-                "type": "List<Station>"
-            },
-            {
-                "generic_type": "Waterway",
-                "name": "waterways",
-                "type": "List<Waterway>"
-            },
-            {
-                "generic_type": "Lock",
-                "name": "locks",
-                "type": "List<Lock>"
-            },
-            {
-                "generic_type": "ShipType",
-                "name": "shipTypes",
-                "type": "List<ShipType>"
-            },
-            {
-                "generic_type": "ShipTypeLockTime",
-                "name": "shipTypeLockTimes",
-                "type": "List<ShipTypeLockTime>"
-            },
-            {
-                "generic_type": "TrafficRule",
-                "name": "trafficRules",
-                "type": "List<TrafficRule>"
-            },
-            {
-                "generic_type": "ShipTypeSpeed",
-                "name": "shipTypeSpeeds",
-                "type": "List<ShipTypeSpeed>"
-            },
-            {
-                "generic_type": "Ship",
-                "name": "shipTypeSchedules",
-                "type": "List<Ship>"
-            },
-            {
-                "generic_type": "Ship",
-                "name": "ships",
-                "type": "List<Ship>"
-            },
-            {
-                "generic_type": "Ship",
-                "name": "shipHistory",
-                "type": "List<Ship>"
-            },
-            {
-                "name": "nextWaterwayShutdown",
-                "type": "Shutdown"
-            },
-            {
-                "name": "nextLockShutdown",
-                "type": "Shutdown"
-            },
-            {
-                "name": "numberOfNetworkLineItems",
-                "type": "int"
-            }
-        ],
-        "extends": "Observable",
-        "type": "class"
-    },
-    "NetworkItem": {
-        "implements": ["Identifiable"],
-        "associations": ["Type"],
-        "variables": [
-            {
-                "name": "id",
-                "type": "int"
-            },
-            {
+                "access": "protected",
                 "name": "name",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "String"
             },
             {
-                "name": "type",
-                "type": "Type"
-            },
-            {
-                "generic_type": "Ship",
-                "name": "ships",
-                "type": "List<Ship>"
+                "access": "protected",
+                "name": "map",
+                "annotations": [],
+                "type": "Integer[][]"
             }
         ],
-        "extends": "Observable",
+        "extends": "ModelItem",
+        "methods": [
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getName",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setName",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getNbrItemX",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "setNbrItemX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getNbrItemY",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "30",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "setNbrItemY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getValue",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Integer"
+            },
+            {
+                "access": "public",
+                "name": "setValue",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "private",
+                "name": "resizeMap",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            }
+        ],
         "type": "class"
     },
-    "Ship": {
-        "implements": ["Comparable"],
-        "associations": [
-            "Direction",
-            "ShipGenerationLawType",
-            "ErlangLawShip",
-            "Time",
-            "Route"
-        ],
+    "ObjetSurFlotteur": {
+        "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
-                "name": "id",
-                "type": "int"
+                "access": "default",
+                "name": "name",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
             },
             {
-                "name": "shipTypeId",
-                "type": "int"
+                "access": "default",
+                "name": "poids",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            }
+        ],
+        "extends": "ModelItem",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "ObjetSurFlotteur"
             },
             {
-                "name": "startStationId",
-                "type": "int"
+                "access": "public",
+                "name": "getPcs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PropertyChangeSupport"
             },
             {
-                "name": "endStationId",
-                "type": "int"
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
             },
             {
+                "access": "public",
+                "name": "getName",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setName",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getPoids",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setPoids",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTypeObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": true,
+                "returnType": "TypeObjetSurFlotteur"
+            }
+        ],
+        "type": "class"
+    },
+    "PanneauSolaire": {
+        "implements": ["Cloneable"],
+        "associations": [],
+        "variables": [
+            {
+                "access": "default",
+                "name": "longueur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "largeur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "angle",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "offsetX",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "offsetY",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "offsetZ",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
                 "name": "direction",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "Direction"
             },
             {
-                "name": "generationLaw",
-                "type": "ShipGenerationLawType"
-            },
-            {
-                "name": "erlangLaw",
-                "type": "ErlangLawShip"
-            },
-            {
-                "generic_type": "DeterministicShutdown",
-                "name": "deterministicLaws",
-                "type": "List<DeterministicShutdown>"
-            },
-            {
-                "generic_type": "DayByDayLaw",
-                "name": "dayByDayLaws",
-                "type": "List<DayByDayLaw>"
-            },
-            {
-                "name": "generationTime",
-                "type": "Time"
-            },
-            {
-                "generic_type": "Route",
-                "name": "routes",
-                "type": "List<Route>"
-            },
-            {
-                "name": "currentRoute",
-                "type": "Route"
-            },
-            {
-                "generic_type": "Checkpoint",
-                "name": "checkpoints",
-                "type": "List<Checkpoint>"
+                "access": "default",
+                "name": "puissance",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
             }
         ],
-        "extends": "Observable",
+        "extends": "ObjetSurFlotteur",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PanneauSolaire"
+            },
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getLongueur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "100",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLongueur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getLargeur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "110",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLargeur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getAngle",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "120",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setAngle",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getOffsetX",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "130",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setOffsetX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getOffsetY",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "140",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setOffsetY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getOffsetZ",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "150",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setOffsetZ",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getDirection",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "160",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE",
+                        "gui_type": "gui_type.COMBO"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "Direction"
+            },
+            {
+                "access": "public",
+                "name": "setDirection",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTypeObjetSurFlotteur",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "TypeObjetSurFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "getPuissance",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "170",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setPuissance",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getLargeurEffective",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getHauteur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "180",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            }
+        ],
         "type": "class"
     },
-    "WaitingTimesStats": {
-        "implements": [],
-        "associations": [
-            "ShipType",
-            "NetworkLineItem",
-            "Direction",
-            "TransitTime",
-            "TransitTime"
-        ],
+    "Flotteur": {
+        "implements": ["Cloneable"],
+        "associations": [],
         "variables": [
             {
-                "name": "shipType",
-                "type": "ShipType"
+                "access": "private",
+                "name": "name",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
             },
             {
-                "name": "networkLineItem",
-                "type": "NetworkLineItem"
+                "access": "private",
+                "name": "fabricant",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
             },
             {
-                "name": "shipDirection",
-                "type": "Direction"
+                "access": "private",
+                "name": "famille",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
             },
             {
-                "name": "totalWaitingTimes",
-                "type": "TransitTime"
-            },
-            {
-                "name": "averageWaitingTimes",
-                "type": "TransitTime"
-            },
-            {
-                "name": "numberOfAccessWaitingShips",
+                "access": "private",
+                "name": "serie",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "int"
             },
             {
-                "name": "numberOfSafetyWaitingShips",
+                "access": "private",
+                "name": "poids",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "private",
+                "name": "poidsAdditionel",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "private",
+                "name": "ID_ObjetSurFlotteur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "int"
             },
             {
-                "name": "numberOfBusynessWaitingShips",
-                "type": "int"
+                "access": "private",
+                "name": "rayonConnecteur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            }
+        ],
+        "extends": "ModelItem",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur"
             },
             {
-                "name": "numberOfShutdownWaitingShips",
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getName",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setName",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getFabricant",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setFabricant",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getFamille",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "30",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setFamille",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getSerie",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "40",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "setSerie",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getPoids",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "50",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setPoids",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getPoidsAdditionel",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "60",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setPoidsAdditionel",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getPoidsTotal",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "70",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getID_ObjetSurFlotteur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "80",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE",
+                        "gui_type": "gui_type.COMBO"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "setID_ObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getRayonConnecteur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "90",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "setRayonConnecteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "toString",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "unassigneObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "isObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "boolean"
+            },
+            {
+                "access": "public",
+                "name": "getVolume",
+                "annotations": [],
+                "isAbstract": true,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getLargeur",
+                "annotations": [],
+                "isAbstract": true,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getLongueur",
+                "annotations": [],
+                "isAbstract": true,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getTypeFlotteur",
+                "annotations": [],
+                "isAbstract": true,
+                "returnType": "TypeFlotteur"
+            }
+        ],
+        "type": "class"
+    },
+    "DENSITY": {
+        "variables": [],
+        "methods": [
+            {
+                "access": "public",
+                "name": "getEnd",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getIni",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            }
+        ],
+        "values": [
+            "D000",
+            "D010",
+            "D050",
+            "D100",
+            "D250",
+            "D500"
+        ],
+        "type": "enum"
+    },
+    "IlotInstance": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "access": "default",
+                "name": "name",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
+            },
+            {
+                "access": "default",
+                "name": "x",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            },
+            {
+                "access": "default",
+                "name": "y",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            },
+            {
+                "access": "default",
+                "name": "angle",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "float"
+            },
+            {
+                "access": "default",
+                "name": "ID_IlotRef",
+                "annotations": [{"name": "XStreamAsAttribute"}],
                 "type": "int"
+            }
+        ],
+        "extends": "ModelItem",
+        "methods": [
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getName",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setName",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getX",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "30",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "setX",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getY",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "40",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "setY",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getAngle",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "50",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "float"
+            },
+            {
+                "access": "public",
+                "name": "setAngle",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getID_IlotRef",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE",
+                        "gui_type": "gui_type.COMBO"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "setID_IlotRef",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            }
+        ],
+        "type": "class"
+    },
+    "TypeObjetSurFlotteur": {
+        "variables": [],
+        "methods": [],
+        "values": [
+            "PANNEAU_SOLAIRE",
+            "AUTRES"
+        ],
+        "type": "enum"
+    },
+    "Model": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "access": "protected",
+                "name": "logger",
+                "annotations": [],
+                "type": "Logger"
+            },
+            {
+                "access": "default",
+                "name": "fileXMLVersion",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
+            },
+            {
+                "access": "default",
+                "name": "flotteurs",
+                "annotations": [],
+                "type": "List<Flotteur>"
+            },
+            {
+                "access": "default",
+                "name": "ilots",
+                "annotations": [],
+                "type": "List<Ilot>"
+            },
+            {
+                "access": "default",
+                "name": "ilotsinstances",
+                "annotations": [],
+                "type": "List<IlotInstance>"
+            },
+            {
+                "access": "default",
+                "name": "objetssurflotteur",
+                "annotations": [],
+                "type": "List<ObjetSurFlotteur>"
+            },
+            {
+                "access": "default",
+                "name": "map_flotteur",
+                "annotations": [{"name": "XStreamOmitField"}],
+                "type": "HashMap<Integer, Flotteur>"
+            },
+            {
+                "access": "default",
+                "name": "traces",
+                "annotations": [],
+                "type": "List<TraceContour>"
+            },
+            {
+                "access": "default",
+                "name": "settings",
+                "annotations": [],
+                "type": "Settings"
+            },
+            {
+                "access": "default",
+                "name": "name",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "String"
             }
         ],
         "extends": null,
+        "methods": [
+            {
+                "access": "public",
+                "name": "getPcs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PropertyChangeSupport"
+            },
+            {
+                "access": "public",
+                "name": "getName",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "String"
+            },
+            {
+                "access": "public",
+                "name": "setName",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getNextId",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "int"
+            },
+            {
+                "access": "public",
+                "name": "getFlotteurs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<Flotteur>"
+            },
+            {
+                "access": "public",
+                "name": "getFlotteurs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<Flotteur>"
+            },
+            {
+                "access": "public",
+                "name": "getObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<ObjetSurFlotteur>"
+            },
+            {
+                "access": "private",
+                "name": "setFlotteurs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<ObjetSurFlotteur>"
+            },
+            {
+                "access": "private",
+                "name": "setObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getIlots",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<Ilot>"
+            },
+            {
+                "access": "public",
+                "name": "getIlotsInstances",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<IlotInstance>"
+            },
+            {
+                "access": "public",
+                "name": "getSettings",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Settings"
+            },
+            {
+                "access": "public",
+                "name": "setSettings",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTraces",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "List<TraceContour>"
+            },
+            {
+                "access": "public",
+                "name": "setTraces",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "main",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "addFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur"
+            },
+            {
+                "access": "public",
+                "name": "addObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "ObjetSurFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "addObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "ObjetSurFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "addIlot",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Ilot"
+            },
+            {
+                "access": "public",
+                "name": "addIlotInstance",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "IlotInstance"
+            },
+            {
+                "access": "public",
+                "name": "addIlotInstance",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "IlotInstance"
+            },
+            {
+                "access": "public",
+                "name": "removeObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "boolean"
+            },
+            {
+                "access": "public",
+                "name": "removeFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "boolean"
+            },
+            {
+                "access": "public",
+                "name": "removeIlot",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "boolean"
+            },
+            {
+                "access": "public",
+                "name": "removeIlotInstance",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "boolean"
+            },
+            {
+                "access": "public",
+                "name": "duplicateObjetSurFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "ObjetSurFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "duplicateFlotteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur"
+            },
+            {
+                "access": "public",
+                "name": "duplicateIlot",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Ilot"
+            },
+            {
+                "access": "public",
+                "name": "duplicateIlotInstance",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "IlotInstance"
+            },
+            {
+                "access": "protected",
+                "name": "getModelItemById",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "T"
+            },
+            {
+                "access": "public",
+                "name": "getFlotteurById",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur"
+            },
+            {
+                "access": "public",
+                "name": "getObjetSurFlotteurById",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "ObjetSurFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "getIlotById",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Ilot"
+            },
+            {
+                "access": "public",
+                "name": "getIlotInstanceById",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "IlotInstance"
+            },
+            {
+                "access": "public",
+                "name": "setIlotValue",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "checkIfWeCanPlaceFlotteurInIlotAccordingToSize",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "boolean"
+            },
+            {
+                "access": "public",
+                "name": "refreshAccelerationMaps",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            }
+        ],
+        "type": "class"
+    },
+    "WindSettings": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "access": "protected",
+                "name": "logger",
+                "annotations": [],
+                "type": "Logger"
+            },
+            {
+                "access": "default",
+                "name": "typeCalcul",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "typeCalculVent"
+            },
+            {
+                "access": "default",
+                "name": "Vb_init",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Cdir",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Cseason",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Zo",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Zo2",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Z",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Zmin",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Zmax",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Co",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "Kl",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "P",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "angle",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            }
+        ],
+        "extends": null,
+        "methods": [
+            {
+                "access": "public",
+                "name": "getPcs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PropertyChangeSupport"
+            },
+            {
+                "access": "public",
+                "name": "main",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVb",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getVm",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getQp",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getTypeCalcul",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE",
+                        "gui_type": "gui_type.COMBO"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "typeCalculVent"
+            },
+            {
+                "access": "public",
+                "name": "setTypeCalcul",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVb_init",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setVb_init",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getCdir",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "30",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCdir",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getCseason",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "40",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCseason",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getZ",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "50",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setZ",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getZmin",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "60",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setZmin",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getZo",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "70",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setZo",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getZmax",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "80",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setZmax",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getZo2",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "90",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setZo2",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getKr",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "100",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getCr",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "110",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getCo",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "130",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setCo",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getKl",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "140",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setKl",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getIv",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "150",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "getP",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "160",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setP",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getAngle",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "170",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setAngle",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            }
+        ],
+        "type": "class"
+    },
+    "AutreObjetSurFlotteur": {
+        "implements": [],
+        "associations": [],
+        "variables": [],
+        "extends": "ObjetSurFlotteur",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "AutreObjetSurFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTypeObjetSurFlotteur",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "TypeObjetSurFlotteur"
+            }
+        ],
+        "type": "class"
+    },
+    "Flotteur_Triangle": {
+        "implements": ["Cloneable"],
+        "associations": [],
+        "variables": [
+            {
+                "access": "private",
+                "name": "longueur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "private",
+                "name": "largeur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "private",
+                "name": "hauteur",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            }
+        ],
+        "extends": "Flotteur",
+        "methods": [
+            {
+                "access": "public",
+                "name": "clone",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "Flotteur_Triangle"
+            },
+            {
+                "access": "public",
+                "name": "duplicateParameters",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getTypeFlotteur",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "TypeFlotteur"
+            },
+            {
+                "access": "public",
+                "name": "getLongueur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "200",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLongueur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getLargeur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "210",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setLargeur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getHauteur",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "220",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setHauteur",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getVolume",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "double"
+            }
+        ],
+        "type": "class"
+    },
+    "Settings": {
+        "implements": [],
+        "associations": [],
+        "variables": [
+            {
+                "access": "default",
+                "name": "sunAngle",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "waterDensity",
+                "annotations": [{"name": "XStreamAsAttribute"}],
+                "type": "double"
+            },
+            {
+                "access": "default",
+                "name": "windSettings",
+                "annotations": [],
+                "type": "WindSettings"
+            }
+        ],
+        "extends": null,
+        "methods": [
+            {
+                "access": "public",
+                "name": "getPcs",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "PropertyChangeSupport"
+            },
+            {
+                "access": "public",
+                "name": "getWindSettings",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "WindSettings"
+            },
+            {
+                "access": "public",
+                "name": "setWindSettings",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getSunAngle",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "10",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setSunAngle",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "getWaterDensity",
+                "annotations": [{
+                    "name": "PROPERTY_interface",
+                    "parameters": {
+                        "orderDisplay": "20",
+                        "Operation": "property_mode.PROPERTY_MERGEABLE"
+                    }
+                }],
+                "isAbstract": false,
+                "returnType": "double"
+            },
+            {
+                "access": "public",
+                "name": "setWaterDensity",
+                "annotations": [],
+                "isAbstract": false,
+                "returnType": "void"
+            },
+            {
+                "access": "public",
+                "name": "toString",
+                "annotations": [{"name": "Override"}],
+                "isAbstract": false,
+                "returnType": "String"
+            }
+        ],
         "type": "class"
     }
 }

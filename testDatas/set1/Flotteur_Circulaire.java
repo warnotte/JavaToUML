@@ -71,10 +71,10 @@ public class Flotteur_Circulaire extends Flotteur implements Cloneable {
 		return largeur * Math.PI * (rayon * rayon);
 	}
 
-	@Override
 	/**
 	 * Retourne la Longueur calculée vu du dessus. Attention avec cette méthode, c'est pour le visuel.
 	 */
+	@Override
 	public double getLongueur() {
 		return rayon*2;
 	}

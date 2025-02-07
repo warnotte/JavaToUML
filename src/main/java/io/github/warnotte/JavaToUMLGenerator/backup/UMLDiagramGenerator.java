@@ -1,4 +1,4 @@
-package io.github.warnotte.JavaToUMLGenerator;
+package io.github.warnotte.JavaToUMLGenerator.backup;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.nidi.graphviz.attribute.*;
@@ -46,21 +46,6 @@ public class UMLDiagramGenerator {
 						String varType = sanitizeString(variable.get("type").asText());
 						label.append(varType).append(": ").append(varName).append("\\l"); // \l pour aligner à gauche
 					}
-				}
-				
-				// TODO : Test if some methods exists.
-				if (true)
-				{
-					label.append("|");
-	                if (classNode.has("methods")) {
-	                    for (JsonNode method : classNode.get("methods")) {
-	                        if (method.get("access").asText().equals("public")) {
-	                            String methodName = sanitizeString(method.get("name").asText());
-	                            String returnType = sanitizeString(method.get("returnType").asText());
-	                            label.append(returnType).append(" ").append(methodName).append("()\\l");
-	                        }
-	                    }
-	                }
 				}
 
 				// Ajouter les valeurs des enums
@@ -111,7 +96,7 @@ public class UMLDiagramGenerator {
 						}
 					}
 				}
-				
+			
 				g = g.with(classNodeGraph);
 			}
 
