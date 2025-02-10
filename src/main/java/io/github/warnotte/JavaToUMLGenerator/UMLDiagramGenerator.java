@@ -25,6 +25,8 @@ public class UMLDiagramGenerator {
 	static void process(String jsonFilePath, String outputImagePath) {
 
 		boolean writeMethods = true;
+		boolean writeEnum = true;
+		boolean writeVariables = true;
 		
 		try {
 			// Charger le JSON
@@ -42,9 +44,9 @@ public class UMLDiagramGenerator {
 
 				// Construire le label avec le style "record"
 				StringBuilder label = new StringBuilder("{" + sanitizeString(className));
-
+				
 				// Ajouter les variables des classes
-				if (true) {
+				if (writeVariables) {
 					if (classNode.has("variables")) {
 						if (classNode.get("variables").size() != 0) {
 							label.append("|");
@@ -73,7 +75,7 @@ public class UMLDiagramGenerator {
 				}
 
 				// Ajouter les valeurs des enums
-				if (true) {
+				if (writeEnum) {
 					if (type.equals("enum") && classNode.has("values")) {
 						if (classNode.get("values").size() != 0) {
 							label.append("|");
