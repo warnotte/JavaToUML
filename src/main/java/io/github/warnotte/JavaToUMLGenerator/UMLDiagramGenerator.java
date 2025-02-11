@@ -15,6 +15,8 @@ import java.util.Iterator;
 import static guru.nidi.graphviz.model.Factory.*;
 
 public class UMLDiagramGenerator {
+	
+	
 	public static void main(String[] args) {
 		String jsonFilePath = "classes.json"; // Le fichier JSON généré précédemment
 		String outputImagePath = "uml_diagram.png"; // Fichier de sortie
@@ -23,11 +25,16 @@ public class UMLDiagramGenerator {
 	}
 
 	static void process(String jsonFilePath, String outputImagePath) {
-
-		boolean writeMethods = true;
-		boolean writeEnum = true;
-		boolean writeVariables = true;
+		UMLDiagramGeneratorConfig config = new UMLDiagramGeneratorConfig();
+		config.writeMethods=true;
+		config.writeVariables=true;
+		config.writeEnum=true;
 		
+		process(jsonFilePath, outputImagePath, config);
+	}
+	
+	static void process(String jsonFilePath, String outputImagePath, UMLDiagramGeneratorConfig config) {
+
 		try {
 			// Charger le JSON
 			ObjectMapper objectMapper = new ObjectMapper();
@@ -45,8 +52,9 @@ public class UMLDiagramGenerator {
 				// Construire le label avec le style "record"
 				StringBuilder label = new StringBuilder("{" + sanitizeString(className));
 				
+				
 				// Ajouter les variables des classes
-				if (writeVariables) {
+				if (config.writeVariables) {
 					if (classNode.has("variables")) {
 						if (classNode.get("variables").size() != 0) {
 							label.append("|");
@@ -59,7 +67,7 @@ public class UMLDiagramGenerator {
 					}
 				}
 
-				if (writeMethods) {
+				if (config.writeMethods) {
 					if (classNode.has("methods")) {
 						if (classNode.get("methods").size() != 0) {
 							label.append("|");
@@ -75,7 +83,7 @@ public class UMLDiagramGenerator {
 				}
 
 				// Ajouter les valeurs des enums
-				if (writeEnum) {
+				if (config.writeEnum) {
 					if (type.equals("enum") && classNode.has("values")) {
 						if (classNode.get("values").size() != 0) {
 							label.append("|");
