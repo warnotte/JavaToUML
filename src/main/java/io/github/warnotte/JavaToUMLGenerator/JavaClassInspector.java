@@ -68,6 +68,7 @@ public class JavaClassInspector {
 		// Étape 1 : Identifier toutes les classes et enums pour les associations
 		for (File file : javaFiles) {
 			try {
+				System.err.println("File : "+file);
 				CompilationUnit cu = StaticJavaParser.parse(file);
 				cu.findAll(ClassOrInterfaceDeclaration.class).forEach(cls -> {
 					if (!excludedClasses.contains(cls.getNameAsString())) {

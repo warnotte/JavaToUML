@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 
 @Command(name = "umlgen", mixinStandardHelpOptions = true, version = "1.0",
-        description = "Converts Java source code to JSON or JSON to UML diagrams.")
+description = "Converts Java source code to JSON or JSON to UML diagrams.")
 public class mainUMLGenerator implements Callable<Integer> {
 
 	// java -jar monprogramme.jar -m JAVATOJSON -i testDatas/set1 -o classes.json --exclude Logger,PropertyChangeSupport
@@ -43,6 +43,7 @@ public class mainUMLGenerator implements Callable<Integer> {
 
     @Override
     public Integer call() {
+    	//System.setProperty("picocli.trace", "OFF"); // Désactive le logging de Picocli pour GraalVM
         System.out.println("Welcome to JAVA Source code to UML generator by Wax78");
 
         switch (mode) {
