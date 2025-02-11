@@ -1,13 +1,12 @@
 package io.github.warnotte.JavaToUMLGenerator;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.Callable;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.Callable;
 
 @Command(name = "umlgen", mixinStandardHelpOptions = true, version = "1.0",
 description = "Converts Java source code to JSON or JSON to UML diagrams.")

@@ -11,7 +11,9 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseProblemException;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
@@ -24,6 +26,7 @@ import com.github.javaparser.ast.expr.MemberValuePair;
 import com.github.javaparser.ast.expr.NormalAnnotationExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.Type;
+import com.github.javaparser.metamodel.PropertyMetaModel;
 
 public class JavaClassInspector {
 
@@ -37,7 +40,30 @@ public class JavaClassInspector {
         process(dir, excluded, jsonOutfile);
     }
 
+    
+    /*
+    ParserConfiguration config = new ParserConfiguration()
+            .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_8)
+            .setAttributeComments(false)
+            .setDoNotAssignCommentsPrecedingEmptyLines(true)
+            .setPreprocessUnicodeEscapes(false)
+            .setLexicalPreservationEnabled(false);
+
+    JavaParser parser = new JavaParser(config);
+    CompilationUnit cu = parser.parse(file).getResult()
+            .orElseThrow(() -> new IOException("Erreur de parsing dans " + file.getName()));
+    */
+    
+    
     static void process(String dir, Set<String> excluded, String jsonoutfile) {
+    	
+    	
+    	System.out.println("Fiel"
+    			+ "ds of PropertyMetaModel: ");
+    	for (java.lang.reflect.Field field : PropertyMetaModel.class.getDeclaredFields()) {
+    	    System.out.println(field.getName());
+    	}
+    	
         List<File> javaFiles = new ArrayList<>();
         collectJavaFiles(new File(dir), javaFiles);
         JSONObject result = extractClassesAndRelations(javaFiles, excluded);
@@ -65,11 +91,30 @@ public class JavaClassInspector {
 		Set<String> classNames = new HashSet<>();
 		Set<String> enumNames = new HashSet<>();
 
+/*
+    	ParserConfiguration config = new ParserConfiguration()
+                .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_8)
+                .setAttributeComments(false)
+                .setDoNotAssignCommentsPrecedingEmptyLines(true)
+                .setPreprocessUnicodeEscapes(false)
+                .setLexicalPreservationEnabled(false);
+    	
+    	JavaParser parser = new JavaParser(config);
+ */   	
+    	
+		
 		// Étape 1 : Identifier toutes les classes et enums pour les associations
 		for (File file : javaFiles) {
 			try {
 				System.err.println("File : "+file);
+				
+				
+
 				CompilationUnit cu = StaticJavaParser.parse(file);
+				
+				//CompilationUnit cu = parser.parse(file).getResult()
+			    //        .orElseThrow(() -> new IOException("Erreur de parsing dans " + file.getName()));
+				
 				cu.findAll(ClassOrInterfaceDeclaration.class).forEach(cls -> {
 					if (!excludedClasses.contains(cls.getNameAsString())) {
 						classNames.add(cls.getNameAsString());
@@ -90,6 +135,10 @@ public class JavaClassInspector {
             try {
             	System.out.println("Analysing : "+file);
                 CompilationUnit cu = StaticJavaParser.parse(file);
+                
+               // CompilationUnit cu = parser.parse(file).getResult()
+              //          .orElseThrow(() -> new IOException("Erreur de parsing dans " + file.getName()));
+                
                 cu.findAll(ClassOrInterfaceDeclaration.class).forEach(cls -> {
                     String className = cls.getNameAsString();
                     

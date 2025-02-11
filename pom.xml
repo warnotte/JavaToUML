@@ -57,6 +57,25 @@
 
 		<plugins>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- annotationProcessorPaths requires maven-compiler-plugin
+				version 3.5 or higher -->
+				<version>3.13.0</version>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>info.picocli</groupId>
+							<artifactId>picocli-codegen</artifactId>
+							<version>4.7.6</version>
+						</path>
+					</annotationProcessorPaths>
+					<compilerArgs>
+						<arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -100,20 +119,16 @@
 				</executions>
 				<configuration>
 
-					<buildArgs>
-						<buildArg>
-							--initialize-at-run-time=picocli.CommandLine,picocli.CommandLine$Tracer</buildArg>
-						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
-						<buildArg>--no-fallback</buildArg>
-						<buildArg>--allow-incomplete-classpath</buildArg>
-						<buildArg>--enable-all-security-services</buildArg>
-
-					</buildArgs>
-
 
 					<agent>
 						<enabled>true</enabled>
 					</agent>
+
+					<buildArgs>
+						<buildArg>
+							--initialize-at-build-time=com.github.javaparser</buildArg>
+					</buildArgs>
+
 
 					<mainClass>
 						io.github.warnotte.JavaToUMLGenerator.mainUMLGenerator</mainClass>

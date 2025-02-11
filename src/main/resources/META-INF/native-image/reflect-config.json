@@ -1,18 +1,6 @@
 [
   {
-    "name": "picocli.CommandLine$AutoHelpMixin",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "name": "picocli.CommandLine",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "name": "picocli.CommandLine$Tracer",
+    "name": "com.github.javaparser.metamodel.PropertyMetaModel",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
