@@ -1,6 +1,8 @@
-# UML Diagram Generator
+# JAVA UML Diagram Generator
 
 ## Description
+
+This project aim to generated Basic UML Class diagramm out of java code by using JaveParser and GraphViz
 
 This project contains 3 main classes:
 1. **JavaClassInspector**: Inspects Java source files to extract information about classes, their attributes, inheritance relationships, and object associations.
@@ -8,10 +10,10 @@ This project contains 3 main classes:
 3. **mainUMLGenerator**: Call the 2 other classes to process a folder recursively containing java source code of a model according to parameters
 
 ## Features
-- Automatic analysis of classes and enums in a set of `.java` files.
+- Automatic analysis of classes and enums in a set of `.java` files. Using com.github.javaparser
 - Extraction of attributes, types, inheritance (`extends`), interfaces (`implements`), and associations between classes.
 - Generation of a JSON file containing structured class information.
-- Production of a UML diagram in image format (`.png`) using Graphviz.
+- Production of a UML diagram in image format (`.png`), DOT and SVG using Graphviz.
 
 ## Prerequisites
 - **Java 21+**
