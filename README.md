@@ -17,8 +17,8 @@ This project contains 3 main classes:
 
 ## Prerequisites
 - **Java 21+**
-- **Graphviz installed** (accessible via the `dot` command) (Possibility maybe to use JS V8 engine)
 - **Required Maven dependencies**:
+- **OPTIONAL - Graphviz installed** (accessible via the `dot` command) (Possibility maybe to use JS V8 engine)
 
 ```xml
   <dependencies>
